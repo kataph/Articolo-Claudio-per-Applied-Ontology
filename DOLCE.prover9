@@ -1,0 +1,161 @@
+% DOLCE axiomatisation
+% Author: Claudio Masolo, Francesco Compagno
+% This work is licensed under a Creative Commons "Attribution 4.0 International" license: https://creativecommons.org/licenses/by/4.0/
+
+%% di seguito sono scritte le definizioni e gli assiomi di DOLCE estratti dal sorgente LaTeX. C'è da fare attenzione a dfGDd: rimosso il seguente
+%% (GD(X, phi) <-> exists T ( PRE(X,T)) & all T ( PRE(X,T) -> exists Y( EXD(X,Y,T) & phi(Y)))) .
+
+set(prolog_style_variables). %% This means that lower case symbols are constants, while capital case symbols are variables.
+
+
+%% PARTHOOD
+(PP(X,Y) <-> P(X,Y) & - P(Y,X)).
+(O(X,Y) <-> exists Z ( P(Z,X) & P(Z,Y))).
+(AT(X) <-> ( PD(X) | AB(X)) & -(exists Y ( PP(Y,X)))).
+(AtP(X,Y) <-> P(X,Y) & AT(X)).
+(SUM(S,X,Y) <-> all Z ( O(Z,S) <-> ( O(Z,X) | O(Z,Y)))).
+(PRD(P,X,Y) <-> all Z ( P(Z,P) <-> ( P(Z,X) & P(Z,Y)))).
+(P(X,Y) -> ( AB(X) & AB(Y)) | ( PD(X) & PD(Y))) .
+(P(X,Y) -> ( T(X) <-> T(Y))) .
+(P(X,Y) -> ( S(X) <-> S(Y))) .
+(P(X,Y) -> ( AR(X) <-> AR(Y))).
+(( AB(X) | PD(X)) -> P(X,X)) .
+(P(X,Y) & P(Y,X) -> X=Y) .
+(P(X,Y) & P(Y,Z) -> P(X,Z)) .
+(( AB(X) | PD(X)) & - P(X,Y) -> exists Z ( P(Z,X) & - O(Z,Y))) .
+(( AB(X) & AB(Y)) | ( PD(X) & PD(Y)) -> exists Z ( SUM(Z,X,Y))) .
+(O(X,Y) -> exists P ( PRD(P,X,Y))) .
+
+%% PRESENCE
+(PRE(X,T) -> ( ED(X) | PD(X) | Q(X)) & T(T)).
+(PRE(X,T) & P(S,T) -> PRE(X,S)).
+(PRE(X,T) & P(X,Y) -> PRE(Y,T)) .
+(( ED(X) | PD(X) | Q(X)) -> exists T( PRE(X,T))) .
+
+%% TEMPORARY PARTHOOD
+(tO(X,Y,T) <-> exists Z ( tP(Z,X,T) & tP(Z,Y,T))).
+(tPP(X,Y,T) <-> tP(X,Y,T) & - tP(Y,X,T)).
+(tAT(X,T) <-> ED(X) & T(T) & -(exists Y ( tPP(Y,X,T)))).
+(TAtP(X,Y,T) <-> tP(X,Y,T) & tAT(X,T)).
+(tSUM(S,X,Y) <-> all Z all T ( tO(Z,S,T) <-> ( tO(Z,X,T) | tO(Z,Y,T)))).
+(tPRD(P,X,Y,T) <-> all Z ( tP(Z,P,T) <-> tP(Z,X,T) & tP(Z,Y,T))).
+(tP(X,Y,T) -> ED(X) & ED(Y) & T(T)).
+(tP(X,Y,T) -> PRE(X,T) & PRE(Y,T)).
+(tP(X,Y,T) & P(S,T) -> tP(X,Y,S)).
+(ED(X) & PRE(X,T) -> tP(X,X,T)).
+(tP(X,Y,T) & tP(Y,Z,T) -> tP(X,Z,T)).
+(ED(X) & ED(Y) & PRE(X,T) & PRE(Y,T) & - tP(X,Y,T) -> exists Z ( tP(Z,X,T) & - tO(Z,Y,T))).
+(ED(X) & ED(Y) -> exists Z ( tSUM(Z,X,Y))).
+(tO(X,Y,T) -> exists Z ( tPRD(Z,X,Y,T))).
+
+%% CONSTITUTION
+(K(X,Y,T) -> (( PED(X) & PED(Y)) | ( NPED(X) & NPED(Y)) | ( PD(X) & PD(Y))) & T(T)).
+(K(X,Y,T) -> - K(Y,X,T)).
+(K(X,Y,T) & K(Y,Z,T) -> K(X,Z,T)).
+(K(X,Y,T) -> PRE(X,T) & PRE(Y,T)).
+(K(X,Y,T) & P(S,T) -> K(X,Y,S)).
+(K(X,Y,T) & tP(V,Y,T) -> exists U ( tP(U,X,T) & K(U,V,T))).
+
+%% PARTICIPATION
+(MPC(X,Y,T) <-> PC(X,Y,T) & -(exists Z ( PC(Z,Y,T) & tPP(Z,X,T)))).
+(PC(X,Y,T) -> ED(X) & PD(Y) & T(T)).
+(PD(X) & PRE(X,T) -> exists Y ( PC(Y,X,T))).
+(ED(X) -> exists Y exists T ( PC(X,Y,T))).
+(PC(X,Y,T) -> PRE(X,T) & PRE(Y,T)).
+(PC(X,Y,T) & P(S,T) -> PC(X,Y,S)).
+
+%% QUALITIES
+(DQT(X,Y) -> ( TQ(X) & PD(Y)) | ( PQ(X) & PED(Y)) | ( AQ(X) & NPED(Y))).
+(DQT(X,Y) & DQT(X,Z) -> Y=Z) .
+(Q(X) -> exists Y ( DQT(X,Y))).
+(PD(X) -> exists Y ( DQT(Y,X) & TL(Y))).
+(PED(X) -> exists Y ( DQT(Y,X) & SL(Y))).
+(NPED(X) -> exists Y ( DQT(Y,X) & AQ(Y))).
+
+%% QUALITY-VALUES
+(QL(X,Y) -> TR(X) & TQ(Y)).
+(QL(X,Y) -> ( TL(Y) <-> T(X))).
+(QL(X,Y) & QL(Z,Y) -> X=Z) .
+(TQ(X) -> exists Y ( QL(Y,X))).
+(DQT(Y,X) & TL(Y) & QL(Z,Y) -> ( PRE(X,T) <-> P(T,Z))) .
+(TQL(X,Y,T) -> (( PR(X) & PQ(Y)) | ( AR(X) & AQ(Y))) & T(T)).
+(TQL(X,Y,T) -> ( SL(Y) <-> S(X))).
+(( PQ(X) | AQ(X)) & PRE(X,T) -> exists Y ( TQL(Y,X,T))).
+(TQL(X,Y,T) -> PRE(Y,T)).
+(TQL(X,Y,T) & P(S,T) -> TQL(X,Y,S)).
+(DQT(Y,X) & SL(Y) & TQL(Z,Y,T) -> ( SPRE(X,S,T) <-> P(S,Z))) .
+
+%% EXISTENTIAL DEPENDENCE
+(SD(X,Y) <-> exists T ( PRE(X,T)) & all T ( PRE(X,T) -> EXD(X,Y,T))) .
+(MEXD(X,Y,T) <-> EXD(X,Y,T) & ED(X) & ED(Y) & -(exists Z ( EXD(X,Z,T) & tPP(Z,Y,T)))) .
+(EXD(X,Y,T) -> PRE(X,T) & PRE(Y,T)) .
+(EXD(X,Y,T) & EXD(Y,Z,T) -> EXD(X,Z,T)) .
+(EXD(X,Y,T) & tP(Z,Y,T) -> EXD(X,Z,T)) .
+(K(X,Y,T) -> EXD(Y,X,T)) .
+(NPED(X) & PRE(X,T) -> exists Y( PED(Y) & EXD(X,Y,T))).
+(MOB(X) -> exists Y( APO(Y) & SD(X,Y))).
+(NASO(X) & PRE(X,T) -> exists Y( SC(Y) & EXD(X,Y,T))).
+(SC(X) & PRE(X,T) -> exists Y( SAG(Y) & K(Y,X,T))).
+(SAG(X) & PRE(X,T) -> exists Y( APO(Y) & EXD(X,Y,T))).
+(F(X) & PRE(X,T) -> exists Y( NAPO(Y) & EXD(X,Y,T))).
+APO(X) & PRE(X,T) -> exists Y( NAPO(Y) & K(Y,X,T))).
+NAPO(X) & PRE(X,T) -> exists Y( M(Y) & K(Y,X,T))).
+
+%% SPATIAL LOCATION
+(SLC(X,S,T) -> ( PED(X) | NPOB(X) | PQ(X) | PD(X)) & S(S) & PRE(X,T)).
+(SLC(X,S,T) & SLC(X,R,T) -> S=R).
+(PED(X) -> ( SLC(X,S,T) <-> exists Q( DQT(Q,X) & SL(Q) & TQL(S,Q,T)))).
+NPOB(X) & PRE(X,T) -> exists Y exists S( PED(Y) & EXD(X,Y,T) & SLC(X,S,T) & SLC(Y,S,T))).
+(PQ(X) -> ( SLC(X,S,T) <-> exists Y( DQT(X,Y) & SLC(Y,S,T)))).
+(PD(X) -> ( SLC(X,S,T) <-> exists Y( MPC(Y,X,T) & SLC(Y,S,T)))).
+(K(X,Y,T) & SLC(X,S,T) & SLC(X,R,T) -> S=R).
+(SLC(X,S,T) & P(U,T) -> SLC(X,S,U)).
+
+%% TAXONOMY: subsumptions
+(( AB(X) | ED(X) | PD(X) | Q(X)) <-> PAR(X)).
+(( AS(X) | NPED(X) | PED(X)) <-> ED(X)).
+(( PRO(X) | ST(X)) <-> STV(X)).
+(( EV(X) | STV(X)) <-> PD(X)).
+(( AQ(X) | PQ(X) | TQ(X)) <-> Q(X)).
+(( ACC(X) | ACH(X)) <-> EV(X)).
+(( APO(X) | NAPO(X)) <-> POB(X)).
+(( SAG(X) | SC(X)) <-> ASO(X)).
+(( ASO(X) | NASO(X)) <-> SOB(X)).
+(( SOB(X) | MOB(X)) <-> NPOB(X)).
+(( AR(X) | PR(X) | TR(X)) <-> R(X)).
+(R(X) -> AB(X)).
+(( F(X) | M(X) | POB(X)) <-> PED(X)).
+(NPOB(X) -> NPED(X)).
+(S(X) -> PR(X)).
+(SL(X) -> PQ(X)).
+(T(X) -> TR(X)).
+(TL(X) -> TQ(X)).
+
+%% TAXONOMY: disjointness
+(-(exists X ( AB(X) & ED(X)))).
+(-(exists X ( AB(X) & PD(X)))).
+(-(exists X ( AB(X) & Q(X)))).
+(-(exists X ( ED(X) & PD(X)))).
+(-(exists X ( PD(X) & Q(X)))).
+(-(exists X ( ED(X) & Q(X)))).
+(-(exists X ( PED(X) & NPED(X)))).
+(-(exists X ( PED(X) & AS(X)))).
+(-(exists X ( NPED(X) & AS(X)))).
+(-(exists X ( M(X) & F(X)))).
+(-(exists X ( F(X) & POB(X)))).
+(-(exists X ( M(X) & POB(X)))).
+(-(exists X ( MOB(X) & SOB(X)))).
+(-(exists X ( ASO(X) & NASO(X)))).
+(-(exists X ( SAG(X) & SC(X)))).
+(-(exists X ( APO(X) & NAPO(X)))).
+(-(exists X ( EV(X) & STV(X)))).
+(-(exists X ( ACH(X) & ACC(X)))).
+(-(exists X ( ST(X) & PRO(X)))).
+(-(exists X ( TQ(X) & PQ(X)))).
+(-(exists X ( PQ(X) & AQ(X)))).
+(-(exists X ( TQ(X) & AQ(X)))).
+(-(exists X ( TR(X) & PR(X)))).
+(-(exists X ( PR(X) & AR(X)))).
+(-(exists X ( TR(X) & AR(X)))).
+
+
