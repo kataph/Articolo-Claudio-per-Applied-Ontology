@@ -1,0 +1,21 @@
+\BOOKMARK [1][]{section.5}{Introduction}{}% 1
+\BOOKMARK [1][]{section.6}{bfo and dolce}{}% 2
+\BOOKMARK [2][]{subsection.7}{CL version of bfo 2020 released the 12 Nov 2021}{section.6}% 3
+\BOOKMARK [2][]{subsection.26}{Extension of dolce ISO-CL version}{section.6}% 4
+\BOOKMARK [2][]{subsection.33}{Notation}{section.6}% 5
+\BOOKMARK [1][]{section.34}{General strategy for the alignment of TLOs}{}% 6
+\BOOKMARK [2][]{subsection.41}{Use of theorems provers and model builders}{section.34}% 7
+\BOOKMARK [1][]{section.45}{Preliminary considerations}{}% 8
+\BOOKMARK [2][]{subsection.46}{Representation of categories}{section.45}% 9
+\BOOKMARK [2][]{subsection.48}{Different ontological focus and resolution}{section.45}% 10
+\BOOKMARK [1][]{section.53}{The mapping from dolce to bfo}{}% 11
+\BOOKMARK [2][]{subsection.54}{Mappings}{section.53}% 12
+\BOOKMARK [2][]{subsection.90}{Preservation of the original bfo axioms}{section.53}% 13
+\BOOKMARK [2][]{subsection.91}{Analysis}{section.53}% 14
+\BOOKMARK [1][]{section.134}{The mapping from bfo to dolce}{}% 15
+\BOOKMARK [2][]{subsection.135}{Mappings}{section.134}% 16
+\BOOKMARK [2][]{subsection.162}{Preservation of the original dolce axioms}{section.134}% 17
+\BOOKMARK [2][]{subsection.163}{Analysis}{section.134}% 18
+\BOOKMARK [1][]{section.182}{Inferring OWL subclass mappings}{}% 19
+\BOOKMARK [1][]{section.183}{Conclusion}{}% 20
+\BOOKMARK [1][]{section*.1.1}{Acknowledgements}{}% 21
