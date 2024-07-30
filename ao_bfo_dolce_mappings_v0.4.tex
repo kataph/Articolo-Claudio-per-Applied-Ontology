@@ -11,10 +11,14 @@
 \documentclass[ao]{iosart2x}
 \usepackage[T1]{fontenc}
 \usepackage{times}%
+\usepackage{array}
 \usepackage{natbib}
 \usepackage{rawfonts}
 \usepackage{stmaryrd}
 \usepackage{amsmath,txfonts,bbm}
+%dsserif}
+%mathbbol}
+%\usepackage[mathscr]{eucal}
 %\usepackage{phonetic} % added to get an upside-down iota (Russell's definite description) \riota.
 % incompatibile con \usepackage{mathptmx}
 \usepackage{graphicx}
@@ -77,6 +81,7 @@ basicstyle=\tiny}%, % print whole listing small
 
 % newcommand for labels of axioms, definitions and formulae
 \newcommand{\dolceAxLabel}{\textrm{a$_\texttt{d}$}}
+\newcommand{\dolceAxLabelscript}{\scriptsize \textrm{a$_\texttt{d}$}}
 \newcommand{\dolceDefLabel}{\textrm{d$_\texttt{d}$}}
 \newcommand{\dolceFmLabel}{\textrm{f$_\texttt{d}$}}
 \newcommand{\dolceThrLabel}{\textrm{t$_\texttt{d}$}}
@@ -108,7 +113,7 @@ basicstyle=\tiny}%, % print whole listing small
 
 % counter and newcommand for numbering formulas of DOLCE
 \newcounter{cntax}
-\newcommand{\dolceax}[1]{\refstepcounter{cntax}\begin{small}{\bf \dolceAxLabel\thecntax\label{#1}}\end{small}}
+\newcommand{\dolceax}[1]{\refstepcounter{cntax}\begin{small}{\bf \dolceAxLabelscript\thecntax\label{#1}}\end{small}}
 \newcounter{cntdef}
 \newcommand{\dolcedf}[1]{\refstepcounter{cntdef}\begin{small}{\bf \dolceDefLabel\thecntdef\label{#1}}\end{small}}
 \newcounter{cntfm}
@@ -163,6 +168,9 @@ basicstyle=\tiny}%, % print whole listing small
 
 \newcommand{\ty}[1]{\textsc{#1}}
 \newcommand{\pr}[1]{\mathtt{#1}}
+\newcommand{\prbfo}[1]{{\textit{{#1}}}}
+
+%\newcommand{\prbfo}[1]{\mathbb{#1}}
 \newcommand{\cn}[1]{\mathtt{#1}}
 \newcommand{\ifif}{\leftrightarrow}
 \newcommand\textequal{%
@@ -409,7 +417,7 @@ basicstyle=\tiny}%, % print whole listing small
 \newcommand{\mtenbcat}{\cn{mten}}
 \newcommand{\imenbcat}{\cn{imen}}
 \newcommand{\objbcat}{\cn{obj}}
-\newcommand{\fobjbcat}{\cn{fobj}}
+\newcommand{\fobjbcat}{\cn{fobjp}}
 \newcommand{\objaggbcat}{\cn{objagg}}
 \newcommand{\sitebcat}{\cn{site}}
 \newcommand{\cfbndbcat}{\cn{cfbnd}}
@@ -445,42 +453,41 @@ basicstyle=\tiny}%, % print whole listing small
 \newcommand{\bfopartic}{\textsc{par}}
 \newcommand{\bfouniv}{\textsc{uni}}
 \newcommand{\bfoentity}{\textsc{ent}}
-
-\newcommand{\bforigid}{\pr{RG}}
-\newcommand{\bfoisa}{\pr{ISA}}
-\newcommand{\bfodisj}{\pr{DJ}}
-
 \newcommand{\bfotime}{\textsc{tm}}
 
-\newcommand{\bfocpart}{\pr{cP}}
-\newcommand{\bfocppart}{\pr{cPP}}
-\newcommand{\bfocdisj}{\pr{cDJ}}
-\newcommand{\bfocoverlap}{\pr{cO}}
-\newcommand{\bfoopart}{\pr{oP}}
-\newcommand{\bfooppart}{\pr{oPP}}
-\newcommand{\bfoooverlap}{\pr{oO}}
-\newcommand{\bfotpart}{\pr{tmP}}
-\newcommand{\bfotppart}{\pr{tmPP}}
-\newcommand{\bfotdisj}{\pr{tmDJ}}
-\newcommand{\bfotoverlap}{\pr{tmO}}
-\newcommand{\bfompart}{\pr{mP}}
-\newcommand{\bfoexist}{\pr{EX}}
+
+\newcommand{\bforigid}{\prbfo{RG}}
+\newcommand{\bfoisa}{\prbfo{ISA}}
+\newcommand{\bfodisj}{\prbfo{DJ}}
+\newcommand{\bfocpart}{\prbfo{cP}}
+\newcommand{\bfocppart}{\prbfo{cPP}}
+\newcommand{\bfocdisj}{\prbfo{cDJ}}
+\newcommand{\bfocoverlap}{\prbfo{cO}}
+\newcommand{\bfoopart}{\prbfo{oP}}
+\newcommand{\bfooppart}{\prbfo{oPP}}
+\newcommand{\bfoooverlap}{\prbfo{oO}}
+\newcommand{\bfotpart}{\prbfo{tP}}
+\newcommand{\bfotppart}{\prbfo{tPP}}
+\newcommand{\bfotdisj}{\prbfo{tDJ}}
+\newcommand{\bfotoverlap}{\prbfo{tO}}
+\newcommand{\bfompart}{\prbfo{mP}}
+\newcommand{\bfoexist}{\prbfo{EX}}
 \newcommand{\bfoiof}[1]{{\,::_{#1\:\!}}}
-\newcommand{\bfoinh}{\pr{INH}}
-\newcommand{\bfosdep}{\pr{SDEP}}
-\newcommand{\bfogdep}{\pr{GDEP}}
-\newcommand{\bfooccurs}{\pr{OCCIN}}
-\newcommand{\bfolocated}{\pr{LOC}}
-\newcommand{\bfosregof}{\pr{SREG}}
-\newcommand{\bfosregofocc}{\pr{SREG_O}}
-\newcommand{\bfotregof}{\pr{TREG}}
-\newcommand{\bfostregof}{\pr{STREG}}
-\newcommand{\bfoparticin}{\pr{PTC}}
-\newcommand{\bfoconcr}{\pr{CONCR}}
-\newcommand{\bforealizes}{\pr{REAL}}
-\newcommand{\bfotproj}{\pr{TPROJ}}
-\newcommand{\bfosproj}{\pr{SPROJ}}
-\newcommand{\bfohistory}{\pr{HIST}}
+\newcommand{\bfoinh}{\prbfo{INH}}
+\newcommand{\bfosdep}{\prbfo{SDEP}}
+\newcommand{\bfogdep}{\prbfo{GDEP}}
+\newcommand{\bfooccurs}{\prbfo{OCCIN}}
+\newcommand{\bfolocated}{\prbfo{LOC}}
+\newcommand{\bfosregof}{\prbfo{sREG}}
+\newcommand{\bfosregofocc}{\prbfo{sREG_O}}
+\newcommand{\bfotregof}{\prbfo{tREG}}
+\newcommand{\bfostregof}{\prbfo{stREG}}
+\newcommand{\bfoparticin}{\prbfo{PTC}}
+\newcommand{\bfoconcr}{\prbfo{CONCR}}
+\newcommand{\bforealizes}{\prbfo{REAL}}
+\newcommand{\bfotproj}{\prbfo{tPROJ}}
+\newcommand{\bfosproj}{\prbfo{sPROJ}}
+\newcommand{\bfohistory}{\prbfo{HIST}}
 
 
 %==========================================
@@ -505,10 +512,12 @@ basicstyle=\tiny}%, % print whole listing small
 \author[A]{\inits{C.} \fnms{Claudio} \snm{Masolo}%\ead[label=e1]{masolo@loa.istc.cnr.it}
 \thanks{Corresponding author. E-mail masolo@loa.istc.cnr.it.}},
 %\thanks{Corresponding author. \printead{e1}.}},
-\author[B]{\inits{A.} \fnms{Francesco} \snm{Compagno}}, %\ead[label=e2]{francesco.compagno@unitn.it}}
-\author[A]{\fnms{Stefano} \snm{Borgo}},
-\author[A]{\fnms{Luca} \snm{Biccheri}}, and
-\author[A]{\fnms{Emilio M.} \snm{Sanfilippo}}
+\author[B]{\inits{A.} \fnms{Francesco} \snm{Compagno}}, and %\ead[label=e2]{francesco.compagno@unitn.it}}
+\author[A]
+{\fnms{Stefano} \snm{Borgo}}
+%\author[A]
+%{\fnms{Luca} \snm{Biccheri}}, and
+%\author[A]{\fnms{Emilio M.} \snm{Sanfilippo}}
 \runauthor{Masolo et al.}
 \address[A]{Laboratory for Applied Ontology,  \institution{ISTC-CNR}, {Trento}, \cny{Italy}} %\printead[presep={\\}]{e1}}
 \address[B]{Computer Science Department, \institution{University of Trento}, Trento, \cny{Italy}} %\printead[presep={\\}]{e2}}
@@ -523,8 +532,8 @@ basicstyle=\tiny}%, % print whole listing small
 %==================================================
 \begin{abstract}
 \noindent 
-The development of an ontology-based ecosystem suitable for interoperability and for the reliable exchange of data is a longstanding goal of the applied ontology community. The construction of such a system relies on alignments across a variety of ontologies: foundational, reference and domain. While the techniques for the alignment of reference and domain ontologies have been continuously studied for more than 15 years; work on techniques for the alignment of foundational ontologies and across foundational and reference ontologies have been scattered or hardly addressed. %Still today, the topic remains largely unexplored. 
-This paper aims to bring attention to the issue in three ways. It motivates the research, presents an approach to develop formal alignments of foundational ontologies, and implements its applicability to study the relationship among two of them, namely, {\bfo} and {\dolce}. The paper points also to variants of and alternatives to this approach briefly comparing advantages and difficulties.
+The development of an ontology-based ecosystem suitable for interoperability and for the reliable exchange of data is a longstanding goal of the applied ontology community. The construction of such a system relies on alignments across a variety of ontologies: foundational, reference and domain. While the techniques for the alignment of reference and domain ontologies have been continuously studied for more than 15 years; work on the techniques for the alignment of foundational ontologies and across foundational and reference ontologies have been scattered or hardly addressed. %Still today, the topic remains largely unexplored. 
+This paper aims to bring attention to the issue in three ways. It motivates the research, presents an approach to develop formal alignments of foundational ontologies, and implements its applicability to study the relationship among two of them, namely, {\bfo} and {\dolce}. The paper points also to variants of and alternatives to this approach by briefly comparing advantages and difficulties.
 \end{abstract}
 %==========================================
 
@@ -561,13 +570,13 @@ A first source of problems, as it became clear later, was the lack of conceptual
 A second source of problems was the lack of a consistent methodology to merge databases and, more generally, to cope with the different structures of information systems. The fact that data were collected from different sources (each following its own purposes) and using different methodologies (each relying on often implicit assumptions) hampered any attempt to develop such a methodology, and information sharing across data storage remained a problem.
 
 The applied ontology vision relies on two tenets: $(a)$ exploitation of formal semantics, and $(b)$ making explicit all the assumptions. It follows that the process of data integration should be analyzed at different levels: syntactic, semantic, conceptual and structural. %\nb{CM: mi suona strano questo interoperability, perché parlavamo di livelli, forse si può semplicemente togliere} \citep{guarinoOntologicalLevel1998}. 
-The focus on the semantics of data and on the conceptualisation of data organisation has brought a sharp change of perspective, and led to study how to make explicit the viewpoint one takes on the external reality. 
+The focus on the semantics of data and on the conceptualisation of data organisation has brought a sharp change of perspective, and led to studying how to make explicit the viewpoint one takes on the external reality. 
 %, something that today we call the ontological viewpoint. 
 In the following ten years, the idea that one has to make explicit the assumptions behind data collection and data management became popular, even though how to do it remained unclear~\citep{oukselSemanticInteroperability1999}. 
 
 %\medskip
-The focus of applied ontology on semantics and hidden assumptions made possible to develop methodologies for data integration and systems' interoperability. The idea was to study an interoperability problem separating the interoperability levels and to use formal logic to uncover semantic inconsistencies, and philosophical analysis to uncover conceptual inconsistencies. 
-This step leads to clarify the implicit choices on which the two systems or datasets rely, and to use logical and philosophical strategies to overcome possible mismatch whenever possible. The next step is to harvest logical methodologies to develop an alignment methodology for those semantic frameworks, and similarly to harvest philosophical methodologies for the alignment of the conceptual frameworks. 
+The focus of applied ontology on semantics and hidden assumptions made it possible to develop methodologies for data integration and systems' interoperability. The idea was to study an interoperability problem separating the interoperability levels and to use formal logic to uncover semantic inconsistencies, and philosophical analysis to uncover conceptual inconsistencies. 
+This step leads to clarifying the implicit choices on which the two systems or datasets rely, and to use logical and philosophical methods -- whenever useful -- to overcome possible mismatch. The next step is to harvest logical methodologies to develop an alignment methodology for those semantic frameworks, and similarly to harvest philosophical methodologies for the alignment of the conceptual frameworks. 
 This procedure gives, as one would expect, a general methodology whose product is a trustable semantic and conceptual mapping across the two systems, which can now be shown compatible at least to the extent of the mapping.
 %\nb{CM: questo claim mi sembra forte, dipende dal significato di mapping} 
 %Yet, the two systems may rely on two distinct ontologies blocking the construction of the semantic mapping. This problem was easily dismissed by a simple iteration of the same process. After all, the ontologies themselves are nothing more than (perhaps special) information systems. This means that one could apply the same methodology to solve the semantic problem at the level of ontologies. That is, one can compare the two ontologies' conceptual systems from a more general viewpoint (e.g., from the so-called top-level~\citep{guarinoontologicalevels}) to find an alignment of the ontological systems. Once these are aligned, one can proceed with the alignment of the initial systems.
@@ -579,10 +588,10 @@ Admittedly, systems may rely on incompatible semantic or conceptual choices, the
 Today we have a set of general methodologies \citep{Euzenat2013, Jarrar2009, fernandezMethontology1997, gomezNeon2009} that help to develop and align datasets and information systems. While these approaches need time to be consolidated, they leave open the problem of aligning general ontologies, those that are now called foundational or top-level, as they are aimed to be applicable in full generality. 
 How ontology interoperability may work at this level has not been explored yet, mainly because of the complexity of these systems. Early works include a comparative study of {\bfo}, {\dolce} and \textsc{ochre}, with an alignment of \textsc{ochre} to {\dolce}~\citep{D18}. 
 %{\color{red}[ALTRO?]}\nb{CM: (1) nel d18 abbiamo mostrato come l'es. statua/creta è modellato dalle 3 ontologie, e abbiamo fatto solo il mapping ochre2dolce, nient'altro; (2) non conosco nessun altro che abbia fatto questi links, non so se GFO o Gruninger abbia fatto qualche cosa, ma non sarebbe un early work}. 
-Unfortunately, this study uses an \textit{ad hoc} approach and does not provide a systemic view. So far no general methodology has been investigated and systematic study has been carried out.
+Unfortunately, this study uses an \textit{ad hoc} approach and does not provide a systemic view. So far no general methodology has been investigated and no systematic study has been carried out.
 
 \medskip
-The present paper is part of a larger effort to build an ontology ecosystem as described by the visionary OntoCommons European project\footnote{\url{ontocommons.eu/}}. Motivated by this line of research, the paper proposes an approach to align top-level formal ontologies, and presents problems, advantages and limitations as elicited by studying the alignment of two well-known foundational ontologies, namely {\dolce} \citep{borgoDOLCEDescriptiveOntology2022} and {\bfo} \citep{barryBasicFormalOntology2015}. The main purpose is to investigate the kind of problems and possible solutions that emerge in this kind of analysis in the hope that the collection and study of these cases highlight the specificity of these issues and their relevance to understand cross-ontology interoperability. Furthermore, practical experiences like this can lead to develop a shared and general methodology for the alignment of top-level ontologies in general.
+The present paper is part of a larger effort to build an ontology ecosystem as described by the visionary OntoCommons European project\footnote{\url{ontocommons.eu/}}. Motivated by this line of research, the paper proposes an approach to align top-level formal ontologies, and presents problems, advantages and limitations as elicited by studying the alignment of two well-known foundational ontologies, namely {\dolce} \citep{borgoDOLCEDescriptiveOntology2022} and {\bfo} \citep{barryBasicFormalOntology2015}. The main purpose is to investigate the kind of problems and possible solutions that emerge in this kind of analysis in the hope that the collection and study of these cases highlight the specificity of these issues and their relevance to understand cross-ontology interoperability. Furthermore, practical experiences like this can lead to developing a shared and general methodology for the alignment of top-level ontologies in general.
 
 %\medskip
 The view underlying the work in this paper is known as ``ontological pluralism'' which claims that science needs to remain open to different ontologies, i.e., to ontologies representing different points of view, and thus should allow the coexistence of possibly mutually inconsistent models. Inconsistence, we should add, can be conceptual as well as formal. Interoperability across inconsistent ontologies is obtained by (possibly partial) alignments via formal mappings. The OntoCommons ontology ecosystem is essentially a network of interconnected domain, reference and foundational ontologies, which is being built in these years starting from an initial set of ontologies and a number of guidelines (still under development). The alignment presented in this paper is one of the results of the project at this stage. 
@@ -591,6 +600,7 @@ The alignment (and underpinning conceptual and technical choices) is performed o
 %Today the $\emmo$ ontology is mostly available in OWL\footnote{??}. The FOL formalisation of $\emmo$ is under development and its alignment with the other ontologies will be investigated in the future.
 The $\bfo$-$\dolce$ mapping applies to the most recent versions of these two ontologies in the CLIF language of Common Logic (CL), an ISO standard\footnote{\url{https://www.iso.org/standard/66249.html}}, as submitted by the groups that developed these ontologies, see Sect.~\ref{sect_bfo_and_dolce} for more details. 
 The choice to use CL is the result of several considerations including that the use of CL is fairly consolidated in the research literature and in applications, and that the visibility and stability of standards can help to increase users' trust in an ontology ecosystem fostering its adoption and extension.
+
 
 \medskip 
 The aims of this paper are:  
@@ -607,7 +617,7 @@ Section \ref{sect_methodology} describes the adopted methodology and the softwar
 %The following material, 
 Section \ref{sect_prelim_considerations} presents the alignment strategy and discusses the main categories that form the core of the two ontologies. 
 The two following sections, Section \ref{sect_d2b} and Section \ref{sect_b2d}, form the technical core of the paper: they present the formal alignment as two distinct mappings: from $\dolce$ to $\bfo$ and from $\bfo$ to $\dolce$. 
-Since the motivation of this work is the construction of an ontology ecosystem that includes also reference and domain ontologies, Section \ref{sect_FOL_OWL} adds some considerations on the possible use (and consequences) of using the given alignments to support alignments in languages of the OWL family \citep{OWL}. 
+Since the motivation of this work is the construction of an ontology ecosystem that includes also reference and domain ontologies, Section \ref{sect_FOL_OWL} adds some considerations on the possible use (and consequences) of using the given alignments to support alignments in languages of the OWL family \citep{owlref}. 
 The last session, Section \ref{sect_conclusion}, summarises the results, discusses other open questions, and lists the next steps in this research line.
 
 
@@ -619,17 +629,17 @@ The last session, Section \ref{sect_conclusion}, summarises the results, discuss
 %{\color{red} ****aggiungere qui due parole sulla storia di DOLCE e BFO magari ispirandoci dai siti web (per BFO https://basic-formal-ontology.org/, dal d2.2 di OntoCommons, ecc.\\
 %SB: qui sotto ho ripreso il testo dall'intro allo sp. issue FOUST, se serve estendiamo.}
 
-{\bfo} and {\dolce} are among the most well-known and used foundational ontologies. In the literature one can find several systems, all developed within the last 20 years and each investigating different ontological choices \citep{Borgo-GK2022FOinAction}.%\nb{CM: non ho capito che cosa si voleva citare qui, forse lo special issue di AO? SB: non ricordo neppure io, ok per lo sp. issue} 
-The decision to investigate the alignment between {\bfo} and {\dolce} is due to the choice made in the OntoCommons project which, in turn, has selected the two ontologies that have been developed earlier in this research area and that have influenced how applied ontologies are presented and discussed today. Note that, leaving aside terminological and other lightweight alignments, a formal comparison of {\bfo} and {\dolce} was investigated in 2002~\citep{D18,} and, more recently, a conceptual analysis has been proposed~\citep{Guarino-2017BfoDolce}.\nb{CM: (1) questo non è vero; (2) citare qui i lavori che esistono su questo inclusi quelli di Nicola?}\nb{SB: ho messo `comparison' e aggiunto Guarino. altro da correggere/aggiungere?}
+{\bfo} and {\dolce} are among the most well-known and used foundational ontologies. In the literature one can find several systems, all developed within the last 20 years and each investigating different ontological choices \citep{Borgo-GK2022FOinAction}. %\nb{CM: non ho capito che cosa si voleva citare qui, forse lo special issue di AO? SB: non ricordo neppure io, ok per lo sp. issue} 
+The decision to investigate the alignment between {\bfo} and {\dolce} is due to the choice made in the OntoCommons project which, in turn, has selected the two ontologies that have been developed earlier in this research area and that have influenced how applied ontologies are presented and discussed today. Note that, leaving aside terminological and other lightweight alignments, a formal comparison of {\bfo} and {\dolce} was partially investigated in 2003~\citep{D18} and, more recently, a conceptual analysis has been proposed~\citep{Guarino-2017BfoDolce}. %\nb{CM: (1) questo non è vero; (2) citare qui i lavori che esistono su questo inclusi quelli di Nicola?}\nb{SB: ho messo `comparison' e aggiunto Guarino. altro da correggere/aggiungere?}
 A brief historical view of the {\bfo} and {\dolce} ontologies is given next, an introduction of their formal approaches follows. For more information on the ontologies see \citep{ISO21838, Borgo-GK2022FOinAction}.
 
 
-`Basic Formal Ontology', $\bfo$ for short, is a top-level ontology designed to support information integration, retrieval, and analysis across all domains of scientific investigation, and has been under development since around 2002  \citep{grenonBiodynamic2004}.\nb{per bib vedi file .tex}
+`Basic Formal Ontology', $\bfo$ for short, is a ``realist'' top-level ontology intended to represent entities as described by science and designed to support information integration, retrieval, and analysis across all domains of scientific investigation, and has been under development since around 2002  \citep{grenonBiodynamic2004}. %\nb{per bib vedi file .tex}
 It serves as the top-level ontology of the Open Biomedical and Bioinformatic Ontology (OBO) Foundry and the Industrial Ontology Foundry (IOF). $\bfo$ has changed considerably over the years and today there are several versions available.
 The one considered in this paper is the $\bfo$ presented in 2020 as part of the standard ISO 21838 (part 2) \citep{ISO21838}. This version is axiomatised in Common Logic (CLIF) \citep{ISO24707} and in the Web Ontology Language (OWL).
 
 
-`Descriptive Ontology for Linguistic and Cognitive Engineering', $\dolce$ for short, is a top-level ontology developed in early 2000 as part of the European project `WonderWeb'\footnote{\url{http://wonderweb.man.ac.uk/index.shtml}} and published in 2002 as part of WonderWeb Deliverable 18 \citep{D18}. The axiomatisation is done in FOL extended with modalities, namely, the standard necessity and possibility operators. Following this work, $\dolce$ has been applied in a number of areas, in several national, European and other international projects, leading to build some application-oriented versions in OWL among which $\dolce$-lite, $\dolce$-ultralite, and $\dolce$-zero. 
+`Descriptive Ontology for Linguistic and Cognitive Engineering', $\dolce$ for short, is a top-level ontology with a cognitive bias developed in early 2000 as part of the European project `WonderWeb'\footnote{\url{http://wonderweb.man.ac.uk/index.shtml}} and published as part of WonderWeb Deliverable 18 \citep{D18}. The axiomatisation is done in FOL extended with modalities, namely, the standard necessity and possibility operators. Following this work, $\dolce$ has been applied in a number of areas, in several national, European and other international projects, leading to build some application-oriented versions in OWL among which $\dolce$-lite, $\dolce$-ultralite, and $\dolce$-zero. 
 The group that developed $\dolce$ takes a conservative approach. The ontology has only minimally changed over the years making it the most stable top-level ontology worldwide. In this paper we consider the $\dolce$ version presented in 2022 as part of the standard ISO 21838 (part 3) which required a version in Common Logic (CLIF). 
 From the ISO 21838 we also take the $\dolce$ version in the Web Ontology Language (OWL).
 
@@ -643,12 +653,12 @@ From the ISO 21838 we also take the $\dolce$ version in the Web Ontology Languag
 %
 %\medskip
 
-We start from the logical theory {\bfocl} consisting of all the axioms of BFO 2020 in CLIF, released on 12 November 2021 and accessible in GitHub\footnote{\url{https://github.com/BFO-ontology/BFO-2020/tree/master/21838-2/prover9}.}. The version we use in the alignment is called $\thbfo$, is given in the syntax of Prover9  and presents four differences with respect to {\bfocl}: $(i)$ inverse relations in {\bfocl} (e.g., hasContinuantPart is the inverse of continuantPartOf) are given in $\thbfo$ by inverting the order of arguments (the temporal argument maintains its position);  $(ii)$ the `AtSomeTime' and `AtAllTimes' relations present in {\bfocl} are never used in other axioms of {\bfocl} and, for this reason, are not considered in $\thbfo$\footnote{Note that `AtSomeTime' and `AtAllTimes' relations are used in the OWL version of {\bfo}.}; $(iii)$ relations introduced in {\bfocl} with `if and only if' clauses are present in $\thbfo$ as syntactic definitions;
+We start from the logical theory {\bfocl} consisting of all the axioms of BFO 2020 in CLIF, released on 12 November 2021 and accessible in GitHub\footnote{\url{https://github.com/BFO-ontology/BFO-2020/tree/master/21838-2/prover9}}. The version we use in the alignment is called $\thbfo$, is given in the syntax of Prover9  and presents four differences with respect to {\bfocl}: $(i)$ inverse relations in {\bfocl} (e.g., hasContinuantPart is the inverse of continuantPartOf) are given in $\thbfo$ by inverting the order of arguments (the temporal argument maintains its position);  $(ii)$ the `AtSomeTime' and `AtAllTimes' relations present in {\bfocl} are never used in other axioms of {\bfocl} and, for this reason, are not considered in $\thbfo$\footnote{Note that `AtSomeTime' and `AtAllTimes' relations are used in the OWL version of {\bfo}.}; $(iii)$ relations introduced in {\bfocl} with `if and only if' clauses are present in $\thbfo$ as syntactic definitions;
 % \refbfodf{cppart} for continuantProperPartOf, \refbfodf{oppart} for occurrentProperPartOf, \refbfodf{tppart} for temporalProperPartOf, and \refbfodf{bfoinh} for inheresIn.\nb{CM: si può togliere questo credo} 
 and $(iv)$ further syntactic definitions are added to improve the readability of some formulas.
 
-The {\bfo} terms tend to be long strings. This makes hard for humans to parse the logical formulas. For this reason, we shorten the terms as shown in Table~\ref{table_prim_bfo} (where the third column gives the original predicates in {\bfocl}) and in Table~\ref{table_cat_bfo}. 
-The classes of \emph{particulars} and \emph{universals} are represented in {\bfo} by unary predicates and not by individual constants: to distinguish them we introduce $\bfopartic$ for particulars and $\bfouniv$ for universals. %\nb{FC: PAR non è una costante. Assieme a "entity(.)" e a "UNI(.)" è un predicato. Inserire tutti e tre in tabella 1 oppure aggiungere UNI e entity nella 2?}.\nb{CM: togliere PAR, mettere una nota su PAR, UNI, e EN e dire che tabella 2 e fig. 1 sono relative solo ai particulars}
+To have more compact formulas, the {\bfo} predicates has been shorten as shown in Table~\ref{table_prim_bfo} (where the third column gives the original predicates in {\bfocl}) and in Table~\ref{table_cat_bfo}. To avoid confusion, we indicate the {\bfo}-predicates in $\mathit{italics}$ while the {\dolce}-predicates in $\mathtt{type writer}$.
+The classes of \emph{particulars} and \emph{universals} are represented in {\bfo} by unary predicates (and not by individual constants as the other explicitly named universals): we use $\bfopartic$ for particulars and $\bfouniv$ for universals. %\nb{FC: PAR non è una costante. Assieme a "entity(.)" e a "UNI(.)" è un predicato. Inserire tutti e tre in tabella 1 oppure aggiungere UNI e entity nella 2?}.\nb{CM: togliere PAR, mettere una nota su PAR, UNI, e EN e dire che tabella 2 e fig. 1 sono relative solo ai particulars}
 %\nb{CM: aggiungere nelle tabelle le primitive che si trovano nel file CL; FC: adesso, le uniche non menzionate sono entità e universale, mancavano inerenza [che è definita, quindi ok] e occorrenti} 
 The taxonomy of the $\thbfo$ particulars is depicted in Figure~\ref{figure_tax_bfo} (vertical lines represent ISA relationships, solid lines indicate a partition). All the universals in the taxonomy in Figure~\ref{figure_tax_bfo} are `rigid' (in the sense that their instances cannot migrate over time to another universal) except for $\objbcat$, $\fobjbcat$, and $\objaggbcat$. %In addition, all the universals directly subsumed by a given universal cover the whole root and are disjoint except $\objbcat$, $\fobjbcat$, and $\objaggbcat$ for which the disjointness is not explicitly stated.
 
@@ -717,13 +727,13 @@ $\bforealizes(x,y)$ & $x$ realizes $y$ & realizes\\
 \hline
 $\bfohistory(x,y)$ & $x$ is the history of $y$ & historyOf \\
 \hline
-$\pr{PREC}(x,y)$ & $x$ precedes $y$ & precedes\\
+$\prbfo{PREC}(x,y)$ & $x$ precedes $y$ & precedes\\
 \hline
-$\pr{FINST}(x,y)$ & $x$ is the first instant of $y$ & firstInstantOf\\
+$\prbfo{FINST}(x,y)$ & $x$ is the first instant of $y$ & firstInstantOf\\
 \hline
-$\pr{LINST}(x,y)$ & $x$ is the last instant of $y$ & lastInstantOf\\
+$\prbfo{LINST}(x,y)$ & $x$ is the last instant of $y$ & lastInstantOf\\
 \hline
-$\pr{MBAS}(x,y,t)$ & $x$ is the material basis of $y$ at time $t$ & materialBasisOf\\
+$\prbfo{MBAS}(x,y,t)$ & $x$ is the material basis of $y$ at time $t$ & materialBasisOf\\
 \hline
 \end{tabular}
 \end{table*}
@@ -741,7 +751,7 @@ $\cfbndbcat$ & Continuant Fiat Boundary\\\hline
 $\cntbcat$ & Continuant \\\hline
 $\dispbcat$ & Disposition \\\hline
 $\flnbcat$ & Fiat Line \\\hline
-$\fobjbcat$ & Fiat Object \\\hline
+$\fobjbcat$ & Fiat Object Part\\\hline
 $\fptbcat$ & Fiat Point \\\hline
 $\fsfbcat$ & Fiat Surface \\\hline
 $\fntbcat$ & Function \\\hline
@@ -806,7 +816,7 @@ As anticipated in the introduction, {\bfo} is a large theory, thus we do not rep
 % 
 %%hroughout the paper, $\thbfo$ axioms that are simple transpositions of axioms of {\bfocl} are accompanied by the identifier of the original axiom between square brackets. 
 %%If a  $\thbfo$ axiom is not accompanied by square brackets\nb{FC: richiederebbe di riportare tutti gli identificativi degli assiomi originali}, it is a new axiom introduced by us with the role of `syntactical sugar'.  
-%%\nb{CM: forse conviene mettere qui gli assiomi che poi andiamo a considerare nei teoremi invece che scrivere i teoremi per cui basta scrivere $\thdolcedbmap \vdash (\bfoax{xx})$ or $\thdolcedbmap \nvdash (\bfoax{xx})$ o dirlo a parole}
+%%\nb{CM: forse conviene mettere qui gli assiomi che poi andiamo a considerare nei teoremi invece che scrivere i teoremi per cui basta scrivere $\thdolcedbmap \vDash (\bfoax{xx})$ or $\thdolcedbmap \nvDash (\bfoax{xx})$ o dirlo a parole}
 %%
 %\bflist
 %\item[\bfodf{time}]  $\bfotime(x) \sdef  x \bfoiof{x} \tregbcat$
@@ -845,7 +855,7 @@ As anticipated in the introduction, {\bfo} is a large theory, thus we do not rep
 %NOTE: The names of the axioms and theorems of DOLCE SIMPLE are those from DOLCE D18 for direct comparison.
 %(http://www.loa.istc.cnr.it/wp\negcontent/uploads/2020/03/D18inv.31\neg12\neg03.pdf)
 %
-We write $\thdolce$ for the logical theory consisting of all the axioms in the CL-version of {\dolce}\footnote{Available from {\color{red} XXXX}. For a more human-accessible version refer to \citep[ch.2]{D24}.}\nb{add sito web in footnote} using the syntax of Prover9. With respect to the original version of {\dolce} introduced in \citep{D18}, from now on called {\dolceorig},
+We write $\thdolce$ for the logical theory consisting of all the axioms in the CL-version of {\dolce}\footnote{Available from \url{http://www.loa.istc.cnr.it/wp-content/uploads/2023/05/DOLCE_clean.tptp_.txt} (in tptp syntax) and \url{http://www.loa.istc.cnr.it/wp-content/uploads/2023/05/DOLCE_clean.prover9.txt} (in Prover9 syntax). For a more human-accessible version refer to \citep[ch.2]{D24} available from \url{https://cloud.cnr.it/owncloud/index.php/s/WzsBI7qw3Om0j0u}.} using the syntax of Prover9. With respect to the original version of {\dolce} introduced in \citep{D18}, from now on called {\dolceorig},
 %\nb{CM: non so se vogliamo fare riferimento alla versione di Daniele (per capirci) depositata pe l'ISO}\nb{SB: direi di si, anche per coerenza con la scelta su BFO}
 $\thdolce$ presents two main differences following the {\dolce-\textsc{iso}} version:
 \bflist
@@ -856,7 +866,7 @@ $\thdolce$ presents two main differences following the {\dolce-\textsc{iso}} ver
 The first simplification weakens several notions of dependence since these are strongly grounded on modality. To partially overcome this difference, $\thdolce$ has the additional primitive of temporary existential dependence ($\EXDd$) which, however, compensates only in part the lack of modal operators. %remain weaker than the existential dependence operator in {\dolceorig}. % as we will see in Section \ref{sect:dolce_dependence} .
 % (specific dependence ($\SDd$) is introduced only considering time, see \refdolcedf{dfSDd});
 
-Concerning the second simplification,\nb{CM: ho tagliato qui perché non mi sembrava corretto} %to partially overcome the lack of the fusion operation, $\thdolce$ adopts the axiom of strong supplementation for $\Pd$ (parthood simpliciter) and $\TPd$ (temporary parthood). Therefore,  
+Concerning the second simplification, %\nb{CM: ho tagliato qui perché non mi sembrava corretto} %to partially overcome the lack of the fusion operation, $\thdolce$ adopts the axiom of strong supplementation for $\Pd$ (parthood simpliciter) and $\TPd$ (temporary parthood). Therefore,  
 $\thdolce$ is based on extensional mereologies (EM), rather than general extensional mereologies (GEM) assumed in $\dolceorig$. % as in the case of {\dolceorig}. 
 Note that $\thdolce$ does not enforces the closure of the domain under (binary) sum and product. It is left to the user to add sum and product operators depending on modeling needs. Additionally, some notions that in {\dolceorig} are defined via the mereological fusion operator, are introduced in $\thdolce$ as primitives. In particular, in $\thdolce$ we have the temporal relation $\TLCd(x,t)$, read as ``$x$ is (exactly) located at time $t$'', and the temporary spatial relation $\SLCd(x,s,t)$, ``at time $t$, $x$ is (exactly) located at space $s$''.
 
@@ -888,7 +898,36 @@ quality spaces (e.g., time interval, color region) assumed in {\dolceorig}\footn
 %In the following, with {\dolce} we indicate the logical theory $\thdolce$ consisting of the axioms  \refdolceax{PdArg}-\refdolceax{disj_tr_ar} together with the syntactic definitions \refdolcedf{def_PPd}-\refdolcedf{dfSPREd} introduced in the Sections \ref{dolce_mereology}-\ref{dolce:taxonomy}. 
 Table~\ref{table_prim_dolce} lists the primitive relations of {$\thdolce$}, Table~\ref{table_cat_dolce} lists the categories  of {$\thdolce$}, and Figure~\ref{fig_tax_dolce} shows the taxonomy of {$\thdolce$} (vertical lines stand for ISA relationships, solid lines indicate a partition). 
 
-In the paper we report only the axioms of $\thdolce$ actually needed for the discussion. When the context is clear, we will use $\thdolce$ and ${\dolce}$ interchangeably.\nb{CM: forse ricordare qui dove è disponibile la lista di tutti gli assiomi} 
+\bflist
+\item[\dolcedf{def_PPd}] $\PPd(x,y) \sdef \Pd(x,y) \land \neg\Pd(y,x)$ 
+\mbox{} \hfill{} (\emph{Proper Part})
+
+\item[\dolcedf{def_Od}] $\Od(x,y) \sdef \exists z (\Pd(z,x) \land \Pd(z,y))$    
+\mbox{} \hfill{} (\emph{Overlap})
+
+\item[\dolcedf{def_ATd}] $\ATd(x) \sdef (\PDdcat(x) \lor \ABdcat(x)) \land \neg\exists y (\PPd(y,x))$
+\mbox{} \hfill{} (\emph{Atom})
+  
+\item[\dolcedf{def_SUMd}] $\SUMd(s,x,y) \sdef \forall z (\Od(z,s) \ifif (\Od(z,x) \lor \Od(z,y)))$  
+\mbox{} \hfill{} (\emph{Mereological Sum})
+
+\item[\dolcedf{def_TPPd}] $\TPPd(x,y,t) \sdef \TPd(x,y,t) \land \neg\TPd(y,x,t)$
+\mbox{} \hfill{} (\emph{Temporary Proper Part})
+
+\item[\dolcedf{def_TOd}] $\TOd(x,y,t) \sdef \exists z (\TPd(z,x,t) \land \TPd(z,y,t))$  
+\mbox{} \hfill{} (\emph{Temporary Overlap})
+
+\item[\dolcedf{dfPREd}] $\PREd(x,t) \sdef \exists u(\TLCd(x,u) \land \Pd(t,u))$  
+\mbox{} \hfill{} (\emph{Being Present in Time})
+
+\item[\dolcedf{dfSDd}] $\SDd(x,y) \sdef \exists t (\PREd(x,t)) \land \forall t (\PREd(x,t) \to \EXDd(x,y,t))$ 
+\mbox{} \hfill{} (\emph{Specific Dependence})
+
+\item[\dolcedf{dfSPREd}] $\SPREd(x,s,t) \sdef \exists r(\SLCd(x,r,t) \land \Pd(s,r))$  
+\mbox{} \hfill{} (\emph{Being Present in Space})
+\eflist
+
+In the paper we report only the axioms of $\thdolce$ actually needed for the discussion. When the context is clear, we will use $\thdolce$ and ${\dolce}$ interchangeably. %\nb{CM: forse ricordare qui dove è disponibile la lista di tutti gli assiomi} 
 
 %
 
@@ -1036,13 +1075,15 @@ In the paper we adopt the following notation to referencing formulas: ({\rm a}$x
 \item (\bfoAxLabel $x$), (\bfoThrLabel $x$), (\bfoDefLabel $x$) are used for axioms, theorems, and definitions of $\thbfo$ (index $b$ stands for $\bfo$); 
 \item (\dolceAxLabel $x$), (\dolceThrLabel $x$), (\dolceDefLabel $x$) are used for axioms, theorems, and definitions of {$\thdolce$} (index $d$ stands for $\dolce$); 
 \item %(\dbAxLabel $x$), (\dbThrLabel $x$), 
-(\dbDefLabel $x$) define %are used for axioms, theorems, and definitions used in 
-the mapping  from ${\thdolce}$ to ${\thbfo}$; and
+(\dbDefLabel $x$) are used for the %are used for axioms, theorems, and definitions used in 
+mappings  from ${\thdolce}$ to ${\thbfo}$; and
 \item %(\bdAxLabel $x$), (\bdThrLabel $x$), 
-(\bdDefLabel $x$) define %are used for axioms, theorems, and definitions used in 
-the mapping  from ${\thbfo}$ to ${\thdolce}$.  
+(\bdDefLabel $x$) are used for the  %are used for axioms, theorems, and definitions used in 
+ mappings  from ${\thbfo}$ to ${\thdolce}$.  
 \end{itemize}
-where by mapping we mean the formal counterpart of the alignment of (a part of) one ontology to (a part of) the other such that {\bf XXXXX}\nb{SB: qui serve una spiegazione di qualche riga su cosa intendiamo con il termine alignment (che usiamo in modo informale) e mapping (che usiamo in modo formale), bisogna almeno dare l'intuizione}. Thus, we say that one ontology is aligned to another when there is an explicit mapping from (part of) the first to the second.\nb{controllare!!}
+i.e., a mapping is a syntactic definition of a primitive of the target ontology in terms of the primitives of the source ontology.
+
+% the formal counterpart of the alignment of (a part of) one ontology to (a part of) the other such that {\bf XXXXX}\nb{SB: qui serve una spiegazione di qualche riga su cosa intendiamo con il termine alignment (che usiamo in modo informale) e mapping (che usiamo in modo formale), bisogna almeno dare l'intuizione}. Thus, we say that one ontology is aligned to another when there is an explicit mapping from (part of) the first to the second.\nb{controllare!!}
 
 %===================================
 \section{The general strategy and the role of methodological assumptions for the alignment of TLOs}\label{sect_methodology}
@@ -1051,10 +1092,10 @@ where by mapping we mean the formal counterpart of the alignment of (a part of) 
 %The purpose of the report is to present the consolidated formal systems of the two covered TLOs and the alignment across these systems. Indirectly, it also serves as a guideline for the alignment of other TLOs that might be interested in joining the ontology network.
 
 %In the previous sections we have introduced the Common Logic versions of {\bfo} and {\dolce}. 
-Before introducing the alignment (that is, providing the mapping) and presenting the difficulties we encountered to develop it, we provide the assumptions, strategy, and further considerations that are behind this work.\nb{SB: changed} These observations motivate the choices made in building the mappings and determine in which sense the result is correct.
+Before introducing the mappings and presenting the difficulties we encountered to develop them, we provide the assumptions, strategy, and further considerations behind this work. These observations motivate the choices made in building the mappings and determine in which sense the result is correct.
 
 The approach is centred on the CL-versions of the two ontologies. These, with their explanatory documentation, are taken as the primary sources of information on the ontologies and are considered in our strategy from the start. 
-Here are the steps that characterize an alignment strategy\footnote{The steps are ideally performed in order but, due to the complexity of the work, in many cases one has to cycle among the steps}:
+Here are the steps that characterize an alignment strategy\footnote{The steps are ideally performed in order but, due to the complexity of the work, in many cases one has to cycle among the steps.}:
 % a first step consists in the following steps% report was developed following these steps:
 \begin{enumerate}[({\bf S}1)]
 %\item The versions in Common Logic of the {\bfo} and {\dolce} ontologies were collected from the groups that developed them. The choice to use Common Logic is the result of several considerations including 
@@ -1062,7 +1103,8 @@ Here are the steps that characterize an alignment strategy\footnote{The steps ar
 %that Common Logic is a consolidated standard (\url{https://www.iso.org/standard/66249.html}) and that the visibility and stability of standards increases users' trust in the OCES system.
 %\item Ontologies with a stable reference version were compared to the version in Common Logic to highlight relevant changes. This case applies to {\dolce} whose reference version was released in 2003 in first-oder modal logic. The version in Common Logic is an adaptation due to the reduced expressivity of Common Logic.
 %\item Formal primitive relations were listed.
-\item analyze the CL-axioms together with the available documentation\footnote{In our case, \citep{barryBasicFormalOntology2015} and \citep{D18} for {\bfo} and {\dolce}, respectively.}\nb{CM: non sono riuscito a trovare dove è disponibila la versione aggiornata che spiega BFO 2020 che abbiamo usato noi [FC:  esiste tale versione? Io ho solo trovato questo sito https://basic-formal-ontology.org/bfo-2020.html che contiene anche ISO scaricabile.]}\nb{SB: non è quella fornita Alan su github?} to ensure proper understanding of the intended interpretations of the primitives of the two ontologies; % (in case of incongruences across documents, the statements of the formal theory have priority);
+\item analyze the CL-axioms together with the available documentation\footnote{In our case, \citep{barryBasicFormalOntology2015} and \citep{D18} for {\bfo} and {\dolce}, respectively.} %\nb{CM: il documento non si trova, aggiungere personal communication?} %\nb{CM: non sono riuscito a trovare dove è disponibila la versione aggiornata che spiega BFO 2020 che abbiamo usato noi [FC:  esiste tale versione? Io ho solo trovato questo sito https://basic-formal-ontology.org/bfo-2020.html che contiene anche ISO scaricabile.]}\nb{SB: non è quella fornita Alan su github?}
+to ensure proper understanding of the intended interpretations of the primitives of the two ontologies; % (in case of incongruences across documents, the statements of the formal theory have priority);
  \item establish and document the methodological choices;
 %where 
 \item introduce formal mappings from one ontology to the other (and vice versa) with a description of what is aligned;
@@ -1070,7 +1112,7 @@ Here are the steps that characterize an alignment strategy\footnote{The steps ar
 \item re-evaluate if the set of mappings can be further generalized.
 \end{enumerate}
 
-The strategy ({\bf S}1)-({\bf S}5) is clearly underspecified. To become operative, one has to give the methodological choices which determine the kind of alignment is sought (and how it can be verified). For instance, one may want to align the terminology, the primitives, the concepts, the inferences, the (intended) domains or even the whole models of the ontologies. This kind of choice leads to pay attention to some features of these systems leaving aside others. Generally speaking, the strategy ({\bf S}1)-({\bf S}5) may generate two incompatible mappings when applied to preserve distinct features.
+The strategy ({\bf S}1)-({\bf S}5) is clearly underspecified. To become operative, one has to give the methodological choices which determine the kind of alignment is sought (and how it can be verified). For instance, one may want to align the terminology, the primitives, the concepts, the inferences, the (intended) domains or even the whole models of the ontologies. This kind of choice leads to paying attention to some features of these systems, leaving aside others. Generally speaking, the strategy ({\bf S}1)-({\bf S}5) may generate two incompatible mappings when applied to preserve distinct features.
 In particular, one has to state what happens in case of inconsistencies across the available documentation. One may decide that the description in natural language is the most reliable of the authors' intentions. Others may insist that the formal theory has priority since it is the only one that can be tested for consistency. Furthermore, the documentation might not be precise or detailed on aspects relevant for the alignment since the latter depends also on how the other ontology is developed. For instance, during the construction of the {\bfo} and {\dolce} alignment that we present in the next sections, the intended interpretation of some concepts was unclear to the alignment developers and clarifying questions were sent to the ontology authors to collect further information. This approach might not always be possible and, even so, it might not solve all cases (sometimes the authors of an ontology might not have a ready answer especially if the question raises foundational problems). %Generally speaking, an alignment methodology should explicitly state how to manage this situation.}
 
 
@@ -1085,7 +1127,7 @@ For instance, \emph{occurrents}
 %(\emph{continuants}) 
 are described and used, in the {\bfo} formal system and accompanying documentation, in a way that is conceptually similar to that of \emph{perdurants} in the {\dolce} formal system and documentation.
 %(\emph{endurants}) 
-This similarity is taken as an informal correspondence and leads to consider the alignment of the {\bfo} occurrent category to the {\dolce} perdurant category. (Note that such a correspondence might be suggested by common examples in the two ontologies, or even be based on the comparison of relevant relations which are, perhaps for different reasons, considered similar like the {\bfo} relation \emph{continuantPartOf} and the {\dolce} relation \emph{temporary parthood}). 
+This similarity is taken as an informal correspondence and leads to considering the alignment of the {\bfo} occurrent category to the {\dolce} perdurant category. (Note that such a correspondence might be suggested by common examples in the two ontologies, or even be based on the comparison of relevant relations which are, perhaps for different reasons, considered similar like the {\bfo} relation \emph{continuantPartOf} and the {\dolce} relation \emph{temporary parthood}). 
 
 \item \label{Ass2} A mapping aims to %must\nb{CM: mi sembra forte, c'è solo un tendere a massimizzare l'overlap tra domini} 
 embed all (or most of) the members of a category of the \emph{source} ontology (e.g., {$\thdolce$} in the case of Sect.~\ref{sect_d2b}) in the domain of quantification of the \emph{target} ontology ({$\thbfo$} in Sect.~\ref{sect_d2b}). In other terms, the purpose is to maximize the coverage of the entities of one ontology by the domain of the other ontology. 
@@ -1102,7 +1144,7 @@ Note that the assumptions (M\ref{Ass2}) and (M\ref{Ass3}) are interrelated and a
 \subsection{General observations learned from the alignment of {\bfo} and {\dolce}}
 The alignment between large ontologies present a formal and a conceptual challenge: the formal challenge consists of the identification and the verification of the mappings; the conceptual challenge refers to the choice among alternative mapping options.
 For instance, in Sect.~\ref{sect_analysis_d2b} and Sect.~\ref{sect_analysis_b2d}, where the alignment of {\bfo} and {\dolce} are presented, we discuss some mappings which have not been adopted in our alignment. These mappings modify (by restricting or expanding the mappings proposed in, respectively, Sect.~\ref{sect_mappings_d2b} and Sect.~\ref{sect_mappings_b2d}) the way some notions of the target ontology are modeled in terms of the ones of the source ontology. 
-In particular, these alternative mappings presents possible solutions (or improvements) to the partiality of the alignments developed in Sect.~\ref{sect_d2b} and Sect.~\ref{sect_b2d}. Furthermore, formal constructions (definitely more complex) can be implemented to extend the domain of the source ontology to resemble more closely the domain of the target ontology, facilitating a richer mapping across these systems. This result can be achieved also by allowing to define in the source ontology the primitives of the target ontology via reference to newly introduced entities. This situation is not specific to the alignment of {\bfo} and {\dolce}. Instead, it is a strategic choice that one has to consider when specialising the strategy to follow.
+In particular, these alternative mappings present possible solutions (or improvements) to the partiality of the alignments developed in Sect.~\ref{sect_d2b} and Sect.~\ref{sect_b2d}. Furthermore, formal constructions (definitely more complex) can be implemented to extend the domain of the source ontology to resemble more closely the domain of the target ontology, facilitating a richer mapping across these systems. This result can be achieved also by allowing to define in the source ontology the primitives of the target ontology via reference to newly introduced entities. This situation is not specific to the alignment of {\bfo} and {\dolce}. Instead, it is a strategic choice that one has to consider when specialising the strategy to follow.
 %\nb{CM: qui cosa volevamo dire? [FC: non ne ho idea, forse fa riferimento a quando nel testo parli di introdurre e.g. coppie di cose. Io taglierei frase]} 
 %In the context of the OCES framework, the alignment strategy to be exploited is exemplified by the mapping from {\bfo} to {\dolce} and by the mappings from {\dolce} to {\bfo} carried out in Sect.~\ref{sect_d2b} and in Sect.~\ref{sect_b2d}.
  
@@ -1112,7 +1154,7 @@ Assumption (M\ref{Ass3}) may be better understood if we compare two approaches t
 Recall that the goal is to have formulas in the source ontology that capture (or best approximate) the concepts in the target ontology. In this example, we take {$\thdolce$} as the source ontology and {$\thbfo$} as the target ontology. (Analogous considerations hold for the other direction.)
 
 The first approach, which we adopt in this paper, is to extend theory $\thdolce$ with a set of syntactic definitions---the mappings in Sect.~\ref{sect_mappings_d2b}---, which inject {$\thbfo$} primitives into {$\thdolce$}, i.e., these definitions are introduced as a way to `understand' the {$\thbfo$} primitives in the {\dolce} language. 
-We use the symbol {$\sdef$} \,for these syntactic definitions and treat them as `parametric macros'. That is, one can simply substitute at the syntactic level the \emph{definiens} for the \emph{definendum}. Note that these syntactic definitions have parameters which must be suitably matched. For instance, suppose we aim to define the primitive of parthood on occurrents in {$\thbfo$} via formula $\bfoopart(x,y) \sdef \phi(x,y)$. As we know, the lefthand side (namely, $\bfoopart(x,y)$) a primitive in {$\thbfo$}. Let us assume that $\phi$ is an expression in the language of {$\thdolce$} with $x$ and $y$ as the only free variables. %\footnote{We assume the usual constraints for syntactic substitution in FOL, e.g., see \cite{?}.}\nb{CM: Serve questa nota? In caso aggiungere riferimento} 
+We use the symbol {$\sdef$} \,for these syntactic definitions and treat them as `parametric macros'. That is, one can simply substitute at the syntactic level the \emph{definiens} for the \emph{definendum}. Note that these syntactic definitions have parameters which must be suitably matched. For instance, suppose we aim to define the primitive of parthood on occurrents in {$\thbfo$} via formula $\bfoopart(x,y) \sdef \phi(x,y)$. As we know, the lefthand side (namely, $\bfoopart(x,y)$) is a primitive in {$\thbfo$}. Let us assume that $\phi$ is an expression in the language of {$\thdolce$} with $x$ and $y$ as the only free variables. %\footnote{We assume the usual constraints for syntactic substitution in FOL, e.g., see \cite{?}.}\nb{CM: Serve questa nota? In caso aggiungere riferimento} 
 In this case, $x$ and $y$ are treated as parameters and the formula $\forall zw(\bfoopart(z,w) \land \bfoopart(w,z) \to z=w)$ in the language of {$\thbfo$} becomes formula $\forall zw(\phi(z,w) \land \phi(w,z) \to z=w)$ in the language of {$\thdolce$}. Similarly, {$\thbfo$}-formula $\bfoopart(\cn{proc\#1},\cn{proc\#2})$ becomes {$\thdolce$}-formula $\phi(\cn{proc\#1},\cn{proc\#2})$. 
 
 The second approach consists in adding these syntactic definitions as new formulas in the source ontology, obtaining a definitional extension of the source theory. %that is an `extension by definitions'. 
@@ -1127,28 +1169,33 @@ These observations hold beyond the {\bfo} and {\dolce} case. Also, the general s
 %======================================
 
 The material presented in the next sections is tested using two theorem provers for FOL, namely, Prover9\footnote{\url{https://www.cs.unm.edu/~mccune/prover9/}} and Vampire\footnote{\url{https://vprover.github.io/}}. For the generation of models and countermodels, the software Mace4\footnote{\url{https://www.cs.unm.edu/~mccune/prover9/}} was used.
-According to the literature \citep{Sut16} and in our experience, Vampire is generally faster than Prover9. However, we experienced that, for some of the proofs we asked the provers to demonstrate, Prover9 performed better then Vampire.\nb{CM: @Francesco, forse spiegare meglio in che senso è meglio FC:riscritto} Furthermore, Prover9 proofs are generally shorter and easy to read. To this contributes the (optional) syntactic choice of assuming that the non-quantified variables of formulas are universally-quantified).\nb{CM: non sono sicuro di capire, nel senso che non si riportano i quantificatore per le variabili univ. quantificate? FC: riscritto}\nb{SB: ho indebolito, da ricontrollare} Therefore we kept using both provers. 
+According to the literature \citep{Sut16} and in our experience, Vampire is generally faster than Prover9 even though in some cases Prover9 performed better than Vampire. %\nb{CM: @Francesco, forse spiegare meglio in che senso è meglio FC:riscritto} 
+Furthermore, Prover9 proofs are generally shorter and easier to read. To this contributes the (optional) syntactic choice of assuming that the non-quantified variables of formulas are universally-quantified. %.\nb{CM: non sono sicuro di capire, nel senso che non si riportano i quantificatore per le variabili univ. quantificate? FC: riscritto}\nb{SB: ho indebolito, da ricontrollare} 
+Therefore we kept using both provers. 
 
 %The provers are used in order to infer a logical consequence from a set of axioms. %Since first-order logic is semi-decidable the provers are not guaranteed to prove or disprove the inference of an axiom from a set of premises so the automated provers cannot be expected to prove or disprove all theorems.
 
-Our methodology to use these software packages (provers) is as follows. We rewrite all axioms and definitions of {$\thdolce$} and $\thbfo$ in the syntax accepted by the software (Vampire accepts tptp \citep{Sut16}\nb{CM: saltato riferimento, @Francesco, puoi aggiungre? FC:cambiato}, Prover9 uses its own syntax).
+Our methodology to use these provers is as follows. We rewrite all axioms and definitions of {$\thdolce$} and $\thbfo$ in the syntax accepted by the software (Vampire accepts tptp \citep{Sut16}, Prover9 uses its own syntax).
 %and we submit this translation together with the translation of the theorem to\nb{CM: qui c'era un problema?}  %used them as antecedents as inputs for 
 %the theorem prover. We repeated this procedure for all theorems and the provers returned the proofs listed in Section \ref{sec:dolce_theorems}. 
-To prove a theorem regarding the mappings from {\dolce} to {\bfo}, we add to the tptp or Prover9-syntax version of {\dolce} \nb{CM: non ho capito di che rewriting si tratta} the translations, in the appropriate syntax, of both the mappings in Sect.\ref{sect_mappings_d2b} and the theorem (i.e., we rewrite the whole $\thdolcedbmap$ plus the theorem). 
+To prove a theorem regarding the mappings from {\dolce} to {\bfo}, we add to the tptp or Prover9-syntax version of {\dolce} the encoding, in the appropriate syntax, of both the mappings in Sect.\ref{sect_mappings_d2b} and the theorem (i.e., we rewrite the whole $\thdolcedbmap$ plus the theorem). 
 %then add the rewriting of the statement (that we already proved by hand)
-\nb{FC: non mi ricordo di aver scritto la vecchia frase. Comunque non è corretta: solo alcuni teoremi soon stati dimostrati a mano prima di sottoporli al prover. Ho riscritto e commentato la vecchia versione} 
-Then we submit this large theory to the software and ask it if the theorem follows from the other axioms. 
-We proceed similarly in the case of the mappings from {\bfo} to {\dolce}. The documentation we provided in the appendix of \cite{D24}\nb{CM: che cosa sarebbe? FC: tipo l'appendice del deliverable di ontocommons, oppure citare quello: ho citato D24, in caso aggiungere link a appendice} refers to these automatically generated proofs.
+%\nb{FC: non mi ricordo di aver scritto la vecchia frase. Comunque non è corretta: solo alcuni teoremi soon stati dimostrati a mano prima di sottoporli al prover. Ho riscritto e commentato la vecchia versione} 
+Then we submit this large theory to the prover and ask it if the theorem follows from the other axioms. 
+We proceed similarly in the case of the mappings from {\bfo} to {\dolce}. The documentation we provided in the appendix of \citep{D24} %\nb{CM: che cosa sarebbe? FC: tipo l'appendice del deliverable di ontocommons, oppure citare quello: ho citato D24, in caso aggiungere link a appendice} 
+refers to these automatically generated proofs.
 %the same, but we also added the definitions of {\bfo} and the definitions of the ({\dolce} to {\bfo}) mapping in the input of the provers. In this case, the proofs were more difficult, and t
 When the provers do not find a proof of a statement, and this happens in several cases, we provide a manual proof. Some of the manually generated proofs are verified by at least one prover by adding intermediate lemmas (which are also automatically verified). %All verified proofs are reported in Section \ref{db_mappings}.\nb{FC: At this moment not all manual proofs have been verified in this way.} 
 
 To formally verify counterexamples of relevant sentences, we produce a counterexample by hand and then proceed in the following way: we write axioms (in the prover syntax) enforcing the existence of the exact number of individual constants required by the counterexample, as well as each and every relation holding among them. 
-For sake of brevity, some of the relations are skipped by exploiting taxonomical axioms. That is, we add the axioms of the {$\thdolce$} (or  {$\thbfo$}) taxonomy, %to simplify our work, 
-then, it is sufficient to specify to which leaf-level class of the taxonomy each constant belongs: the constant will automatically belong to each superclass and not belong to disjoint classes, thanks to the ISA relationship axioms holding between the classes of the taxonomy. Additionally, the disjunction axioms between the taxonomical classes spare us from stating that individuals belonging to disjoint classes are different (non-identity among different individual constants belonging to the same class must be still forced through appropriate axioms).\nb{CM: non ho capito questo, non è possibile avere due costanti dello stesso tipo foglia? FC: riscritto} In this way, we obtain a theory that syntactically describes the domain and the relationships at the core of the counterexample, which is complete by construction. 
-At this point, we run Mace4 using all these axioms as input.\nb{CM: è vero questo? mi ricordavo che facevamo andare solo il prover FC: lo facevo girare senza i teoremi, prima divfar girare i prover} This software verifies that this (small) set of axioms is consistent and generates an explicit model.
+For the sake of brevity, some of the relations are skipped by exploiting taxonomical axioms. That is, we add the axioms of the {$\thdolce$} (or  {$\thbfo$}) taxonomy, %to simplify our work, 
+then, it is sufficient to specify to which leaf-class of the taxonomy each constant belongs: the constant will automatically belong to each superclass and not belong to disjoint classes, thanks to the ISA relationship axioms holding between the classes of the taxonomy. Additionally, the disjunction axioms between the taxonomical classes spare us from stating that individuals belonging to disjoint classes are different (non-identity among different individual constants belonging to the same class must be still forced through appropriate axioms). %\nb{CM: non ho capito questo, non è possibile avere due costanti dello stesso tipo foglia? FC: riscritto} 
+In this way, we obtain a theory that syntactically describes the domain and the relationships at the core of the counterexample, which is complete by construction. 
+At this point, we run Mace4 using all these axioms as input. %\nb{CM: è vero questo? mi ricordavo che facevamo andare solo il prover FC: lo facevo girare senza i teoremi, prima divfar girare i prover} 
+This software verifies that this (small) set of axioms is consistent and generates an explicit model.
 Such a model is the only model (up to isomorphism) of the theory, because we take care that the theory is complete and the model is finite by construction.
-Then, for each axiom of {$\thdolce$} (or $\thbfo$), we verify that such an axiom holds in that model, by asking the provers if the axiom follows from those axioms that specify the model, thus proving that the model is a model of {$\thdolce$} ($\thbfo$).\nb{SB: il testo era ambiguo e ho cambiato, controllate FC: ricambiato} 
-Lastly, we check that in this model the sentence that we want to disprove is actually false (one may think that this step is not needed, essentially it guarantees that everything was done correctly)\nb{FC: in che senso non serve? O si verica a mano che è un contromodello o si verifica in automatic. A me non verrebbe da pensare che questo passo non serve.}.
+Then, for each axiom of {$\thdolce$} (or $\thbfo$), we verify that such an axiom holds in that model, by asking the provers if the axiom follows from the axioms that specify the model, thus proving that the model is a model of {$\thdolce$} ($\thbfo$). %\nb{SB: il testo era ambiguo e ho cambiato, controllate FC: ricambiato} 
+Lastly, we check that in this model the sentence that we want to disprove is actually false. % (one may think that this step is not needed, essentially it guarantees that everything was done correctly)\nb{FC: in che senso non serve? O si verica a mano che è un contromodello o si verifica in automatic. A me non verrebbe da pensare che questo passo non serve.}.
 
 Note that the standard way to generate counterexamples with Mace4, that is, by asking Mace4 to find a model of all the axioms of {$\thdolce$} ($\thbfo$) with the addition of the negation of the sentence to be disproved, does not work in most of our cases. In our experience, perhaps due to the complexity of these ontologies, the generation of a model requires an excessive computational effort.
 
@@ -1159,7 +1206,7 @@ Note that the standard way to generate counterexamples with Mace4, that is, by a
 %Notice that the proofs use prefixed notation for the ternary (or binary, when the time argument is absent) predicate of instantiation, in place of the infixed syntax ($\bfoiof{}(x,y,t)$ in place of $x\bfoiof{t}y$).
 
 
-All the proofs and models relative to our alignments are collected in \citep{??}.\nb{CM: mettiamo il del d2.4 in cui manca qualcosa o un rapporto?}\nb{a che punto è il d2.4?}
+All the proofs and models relative to our alignments are collected in \citep{D24}. %\nb{CM: mettiamo il del d2.4 in cui manca qualcosa o un rapporto?}\nb{a che punto è il d2.4?}
 
 %===================================
 \section{Preliminary considerations}\label{sect_prelim_considerations}
@@ -1228,7 +1275,7 @@ How the most general categories (endurants/continuants on the one hand, perduran
 
 \paragraph{On endurants vs.~continuants} The spatial and material dimensions of this kind of entities play a central role in both {\dolce} and {\bfo} (see Sect.~\ref{sect_analysis_d2b} for their differences). {\dolce} presents a finer taxonomy mainly aimed to cover the notions of agentivity and sociality. {\bfo}, which is driven by the distinction between fiat vs.~bona fide entities, explicitly introduces the notion of aggregate, and relies on the dimensionality of the spatial (rather than temporal) location to distinguish sites vs.~continuant fiat boundaries.
 
-\paragraph{On qualities} The branch of the taxonomy for qualities in {\dolce} is detached from that of endurants and continuants, differently from {\bfo}, and is motivated by the \emph{comparability} principle: it makes sense to compare the color of a rose and the color of a vase, it does not make sense to compare the color of a rose and the weight of a vase. Qualities are clustered in terms of maximal comparability, e.g., colors, weights, lengths, shapes, etc. form different quality types. Spaces of regions have a structure and are associated accordingly, e.g., for colors, the space has regions for red, blue, green, etc. Instead, {\bfo} distinguishes classes of specifically dependent continuants according to the existence, the nature of, and the participants in their realization processes.
+\paragraph{On qualities} The branch of the taxonomy for qualities in {\dolce} is detached from that of endurants and continuants, differently from {\bfo}, and is motivated by the \emph{comparability} principle: it makes sense to compare the color of a rose and the color of a vase, while it does not make sense to compare the color of a rose and the weight of a vase. Qualities are clustered in terms of maximal comparability, e.g., colors, weights, lengths, shapes, etc. form different quality types. Spaces of regions have a structure and are associated accordingly, e.g., for colors, the space has regions for red, blue, green, etc. Instead, {\bfo} distinguishes classes of specifically dependent continuants according to the existence, the nature of, and the participants in their realization processes.
 
 \smallskip
 These different ways of classifying entities are not incompatible \textit{per se}. For instance, one could consider cumulativity, agentivity, comparability in {\bfo}, and dimensionality of temporal/spatial regions and realization processes in {\dolce}. But, clearly, this approach requires extending {\bfo} and {\dolce}, a choice that should be pondered carefully. The approach based on ontology extension is not exploited in the alignment we present here. The consequence is that some primitive notions and categories of the target ontology cannot be defined in terms of those in the source ontology. This leads to developing a mapping that focuses on the general notions and categories of the two ontologies.
@@ -1298,9 +1345,9 @@ First of all, {$\thdolce$} lacks the language to refer to the dimensionality of 
 Concerning $(ii)$ we introduce a definition only for the disjunction of $\sitebcat$ and $\cfbndbcat$ (written $\sitebcat{\cup}\cfbndbcat$), see \refdbdf{d2b_siteUcfbnd}. $\sitebcat{\cup}\cfbndbcat$ is clearly not among the categories in the {\bfo} taxonomy and it might not be acceptable as a {\bfo} universal. It is used in the mapping with a technical role: $x \bfoiof{t} \sitebcat{\cup}\cfbndbcat$ is a shortcut for $x \bfoiof{t} \sitebcat \lor x \bfoiof{t}\cfbndbcat$. %It can be removed if needed.\nb{SB: check} 
 Concerning $(iii)$ we identify temporal instants (intervals) with $\thdolce$ atomic (non-atomic) time intervals, see \refdbdf{d2b_tinst} and \refdbdf{d2b_tint}. Admittedly, this is a very rough characterization. First, temporal atoms can have the same dimensionality of the times they are part of. Second, in {\bfo} the finite sum of (distinct) zero-dimensional temporal regions is still zero-dimensional while the sum of (distinct) atomic times is always not atomic, i.e., according to \refdbdf{d2b_tinst} and \refdbdf{d2b_tint}, {it is} an interval. Third, {\bfo} time intervals are convex while {\dolce} non-atomic time intervals are not necessarily convex. Thus, \refdbdf{d2b_tint} seems to approximate the category $\onetregbcat$ better than $\tintbcat$. At the same time, if all the non-atomic entities are instances of  $\onetregbcat$, then $\zerotregbcat$ and $\tinstbcat$ collapse. For these reasons, we omit $\onetregbcat$ and $\zerotregbcat$ and 
 %we 
-consider only the rough definitions of $\tinstbcat$ and $\tintbcat$. Note that, in {\bfo}, the convexity of intervals is characterized by means of the primitive of precedence ($\pr{PREC}$). To define $\pr{PREC}$ in {\dolce} one should extend the theory with an order relation defined on time intervals. Similarly for $\pr{FINST}$ (firstInstantOf) and $\pr{LINST}$ (lastInstantOf). It follows that the mapping does not cover the relations $\pr{PREC}$, $\pr{FINST}$, and $\pr{LINST}$.
+consider only the rough definitions of $\tinstbcat$ and $\tintbcat$. Note that, in {\bfo}, the convexity of intervals is characterized by means of the primitive of precedence ($\prbfo{PREC}$). To define $\prbfo{PREC}$ in {\dolce} one should extend the theory with an order relation defined on time intervals. Similarly for $\prbfo{FINST}$ (firstInstantOf) and $\prbfo{LINST}$ (lastInstantOf). It follows that the mapping does not cover the relations $\prbfo{PREC}$, $\prbfo{FINST}$, and $\prbfo{LINST}$.
 
-As anticipated earlier, see also assumption (M\ref{Ass1}) in Sect. \ref{sect_methodology}, the category of specifically dependent continuants ($\sdcntbcat$) seem to correspond to the {\dolce} category of qualities. However, as observed in Sect.~\ref{sect_diff_resolution}, {\bfo} and {\dolce} distinguish the subclasses of these categories based on different criteria. In {\bfo}, the subcategories of $\sdcntbcat$ are mainly characterized by means of the primitives $\bforealizes$ (realizes) and $\pr{MBAS}$ (materialBasisOf) for which, however, the characterization is missing.\footnote{Necessary conditions are given for $\bforealizes$. These are not enough to characterize the relation.} As a consequence, $\bforealizes$, $\pr{MBAS}$, and the subcategories of $\sdcntbcat$ are not covered by the mapping.
+As anticipated earlier, see also assumption (M\ref{Ass1}) in Sect. \ref{sect_methodology}, the category of specifically dependent continuants ($\sdcntbcat$) seem to correspond to the {\dolce} category of qualities. However, as observed in Sect.~\ref{sect_diff_resolution}, {\bfo} and {\dolce} distinguish the subclasses of these categories based on different criteria. In {\bfo}, the subcategories of $\sdcntbcat$ are mainly characterized by means of the primitives $\bforealizes$ (realizes) and $\prbfo{MBAS}$ (materialBasisOf) for which, however, the characterization is missing.\footnote{Necessary conditions are given for $\bforealizes$. These are not enough to characterize the relation.} As a consequence, $\bforealizes$, $\prbfo{MBAS}$, and the subcategories of $\sdcntbcat$ are not covered by the mapping.
 
 A similar situation holds for the subcategories of material entities ($\mtenbcat$). In particular, objects aggregates are intimately connected to the $\bfompart$ (memberPartOf) primitive. None of these notions can be defined without an extension of {\dolce}. It follows that also $\bfompart$ and the subcategories of $\mtenbcat$ are not covered by the mapping.
 
@@ -1313,7 +1360,7 @@ Other cases are more subtle. The primitive $\bfohistory$ (historyOf) seems to be
 However the effectiveness of this definition depends on the existential assumptions on perdurants. 
 For instance, assume that $y$ participates only at the beginning of a perdurant $p$ and that this beginning is not a temporal part of $p$ in {\bfo}, since {\dolce} does not commit to the existence of all the temporal slices of a perdurant, then $y$ would not have a history. %\nb{SB: questo non era semplice da spiegare, ho cambiato molto}\nb{CM: mi sembra ok}
 %For instance, if $y$ just participates in a perdurant $p$ but only during a part $t$ of the temporal  extension of $p$ and the temporal part of $p$ during $t$ does not exist---and {\dolce} does not commit to the existence of all the temporal slices of a perdurant---then $y$ would not have a history. 
-These technical difficulties, and the fact that histories seem to have a marginal role in the {\bfo} ontology, suggest to leave out also the classes $\bfohistory$ and $\histbcat$.
+These technical difficulties, and the fact that histories seem to have a marginal role in the {\bfo} ontology, suggest to leave out also $\bfohistory$ and $\histbcat$.
 
 Spatiotemporal regions are compatible but not enforced in {\dolce}. One could introduce them among the %spatial and the temporal 
 regions together with the correspondent qualities. The projections regulating the relationships with spatial and temporal regions (corresponding to the {\bfo} $\bfotproj$ and $\bfosproj$) would also be necessary.
@@ -1322,7 +1369,7 @@ Alternatively, violating (M\ref{Ass3}), spatiotemporal regions could be construc
 %These options could be investigated but, since they are 
 As we do not exploit constructive extensions, %\nb{CM: cosa vuol dire?}, 
 we do not consider them here even though, from the expressive power viewpoint, spatiotemporal regions seem not to change the language. This suggests that their introduction might be, at least technically, less controversial. %everything that can be expressed via spatiotemporal regions can also be expressed taking into account $\TLCd$ together with $\SLCd$. 
-Here we do not consider them, more details on spatiotemporal regions can be found in \citep{D24}.\nb{CM: ho tagliao il discorso su $\bfosregofocc$ che non mi sembra usiamo nel seguito}
+Here we do not consider them, more details on spatiotemporal regions can be found in \citep{D24}. %\nb{CM: ho tagliao il discorso su $\bfosregofocc$ che non mi sembra usiamo nel seguito}
 %In our case, we prefer to introduce the relation $\bfosregofocc$ which is the analogous on occurrents of the relation $\bfosregof$ defined on continuants:\footnote{$\bfosregofocc$ is not considered in {\bfo} even though it can be easily defined on the basis of spatiotemporal regions and their projection on space.}
 %%
 %\bflist
@@ -1331,7 +1378,9 @@ Here we do not consider them, more details on spatiotemporal regions can be foun
 %%
 %and then use the temporal locations of $x$ and $y$ to understand what is their spatiotemporal relation. More details on spatiotemporal regions can be found in \cite{OntoCdel2.4}.\nb{CM: rif. deliverable}
 
-Finally, following the discussion in Sect.~\ref{sect_problem_univ}, instance-of ($\bfoiof{}$) is not directly defined. Instead, we define in $\thdolce$ the instantiation of the needed universals. We also define the primitive predicate $\bfopartic$ and $\bfouniv$ of $\bfo$, introduced to distinguish particulars from universals, even though $\bfouniv$ results empty in $\thdolce$ (when at least a temporal interval exists, see \refdbth{all_particulars} in Sect.~\ref{sect_analysis_d2b}).\nb{CM: aggiunta questa ultima frase} 
+The definition \refdbdf{d2b_concr} of $\bfoconcr$ (and the ones of $\gdcntbcat$ and $\bfogdep$ which are grounded on it) is just an approximation that introduces a clear link between $\bfo$ concretization and $\dolce$ existential dependence. In particular, while the first argument of the original concretization can also be a process (see the axiom [rog-1] in $\bfocl$), \refdbdf{d2b_concr} contemplates only specifically dependent continuants. It is not clear to us (also because the $\bfo$ documentation contains very few examples of generically dependent continuants concretized by processes) how processes can be taken into account starting from $\dolce$.   
+
+Finally, following the discussion in Sect.~\ref{sect_problem_univ}, instance-of ($\bfoiof{}$) is not directly defined. Instead, we define in $\thdolce$ the instantiation of the needed universals. We also define the primitive predicate $\bfopartic$ and $\bfouniv$ of $\bfo$, introduced to distinguish particulars from universals, even though $\bfouniv$ results empty in $\thdolce$ (when at least a temporal interval exists, see \refdbth{all_particulars} in Sect.~\ref{sect_analysis_d2b}). %\nb{CM: aggiunta questa ultima frase} 
 
 
 %\smallskip
@@ -1343,14 +1392,16 @@ Summing up, among the {\bfo} notions, in the following we introduce:
 
 %Let us start by analyzing the {\bfo} primitive relations, see Table~\ref{table_prim_bfo}. The primitive relations precedes, firstInstantOf, and lastInstantOf would require to extend {\dolce} with a structuring relation on time intervals. The relations realizes and materialBasisOf would require {\dolce} to be able at least to individuate among its qualities the ones that are realizable entities. We don't see how this is possible without any extension. 
 
-These syntactic definitions are given below---where, in {\dolce}, $\ATd(x) \sdef \forall y(\Pd(y,x) \to x=y)$---together with a short informal description. (Once a definition has been introduced, it may be used only in definitions given later to avoid circularity.) A deeper analysis about these definitions and their impact on the preservation of the axioms of {\bfo} is in Sect.~\ref{sect_analysis_d2b}. 
+These syntactic definitions are given below %---where, in {\dolce}, $\ATd(x) \sdef \forall y(\Pd(y,x) \to x=y)$---
+together with a short informal description. (Once a definition has been introduced, it may be used only in definitions given later to avoid circularity.) A deeper analysis about these definitions and their impact on the preservation of the axioms of {\bfo} is in Sect.~\ref{sect_analysis_d2b}. 
 %
 \bflist
-\item[\dbdf{d2b_exist}] $\bfoexist(x,t)\sdef \PREd(x,t) \lor (\Tdcat(x) \land \Pd(t,x)) \lor (\ABdcat(x) \land \neg \Tdcat(x) \land \Tdcat(t))$.
+\item[\dbdf{d2b_exist}] $\bfoexist(x,t)\sdef \PREd(x,t) \lor (\Tdcat(x) \land \Pd(t,x)) \lor (\ABdcat(x) \land \neg \Tdcat(x) \land \Tdcat(t))$
 
 %{\color{red} ****check if in {\bfo} a time $t$ exist only during $t$, see \refbfoax{timeiof2tpart}}
 \vspace{1pt}
-$\bfoexist$ coincides with $\PREd$ on $\EDdcat$s, $\PDdcat$s, and $\Qdcat$s; it also applies to $\ABdcat$.  Time intervals $\bfoexist$-exist at every subinterval of themselves while the other abstracts entities $\bfoexist$-exist at every time. This extension matches the fact that, in {\bfo}, both temporal regions and spatial regions (which seem very close to {\dolce} time intervals and space regions, respectively, see \refdbdf{d2b_treg} and \refdbdf{d2b_sreg}) are in time.
+$\bfoexist$ coincides with $\PREd$ on $\EDdcat$s, $\PDdcat$s, and $\Qdcat$s. %; it also applies to $\ABdcat$.  
+Time intervals $\bfoexist$-exist at every subinterval of themselves while the other abstracts entities $\bfoexist$-exist at every time. This extension matches the fact that, in {\bfo}, $\bfoexist$ is defined on both temporal regions and spatial regions (which seem very close to {\dolce} time intervals and space regions, respectively, see \refdbdf{d2b_treg} and \refdbdf{d2b_sreg}).
 
 \item[\dbdf{d2b_opart}] $\bfoopart(x,y) \sdef \Pd(x,y) \land ((\PDdcat(x) \land \PDdcat(y)) \lor (\Tdcat(x) \land \Tdcat(y)))$
 
@@ -1558,12 +1609,12 @@ According to \refdbdf{d2b_idcnt}, \refdbdf{d2b_sdcnt}, \refdbdf{d2b_gdcnt}, and 
 \item[\dbdf{d2b_sregof}] $\bfosregof(x,s,t) \sdef x \bfoiof{t} \idcntbcat \land \neg\Sdcat(x) \land \SLCd(x,s,t)$
 
 \vspace{1pt}
-$\bfosregof$ is the resctriction of $\SLCd$ to independent continuants (as defined in \refdbdf{d2b_idcnt}) that are not spatial regions.  
+$\bfosregof$ is the restriction of $\SLCd$ to independent continuants (as defined in \refdbdf{d2b_idcnt}) that are not spatial regions.  
 
 \item[\dbdf{d2b_partic}] $\bfoparticin(x,y,t) \sdef x \bfoiof{t} \cntbcat \land \neg\Sdcat(x) \land y \bfoiof{t} \procbcat \land \PCd(x,y,t)$
 
 \vspace{1pt}
-$\bfoparticin$ is the resctriction of $\PCd$ to continuants that are not spatial regions and to processes (as defined above).  
+$\bfoparticin$ is the restriction of $\PCd$ to continuants that are not spatial regions and to processes (as defined above).  
 
 \item[\dbdf{d2b_occurs}] $\bfooccurs(x,y) \sdef $\parbox[t]{\textwidth}{$\PDdcat(x) \land \exists t(y \bfoiof{t} \mtenbcat \lor y \bfoiof{t} \sitebcat{\cup}\cfbndbcat) \land \\ 
 \forall t(\PREd(x,t) \to \exists sr(\SLCd(x,s,t) \land \SLCd(y,r,t) \land \Pd(s,r)))$}
@@ -1669,22 +1720,22 @@ some {\bfo}-axioms involve relations or categories that have not been defined in
 
 We begin this analysis by considering how the entities in the domain of $\thdolce$ are classified  by the categories of {\bfo} as encoded by our definitions. %\nb{SB: non mi tornava la frase che c'era e l'ho riscritta, va bene così?}\nb{CM: (1) qui stiamo assumendo una partizione, credo valga ma si vede solo alla fine; (2) invece di primitives parlerei di categorie } 
 %We begin this analysis by considering how the entities in the domain of $\thdolce$ are classified from the point of view of {\bfo}.
-Theorem \refdbth{-AB_particulars} shows that endurants, perdurants, and qualities are all {\bfo} particulars (in the sense of the {\bfo} notion of particular, $\bfopartic$ defined in \refdbdf{d2b_particular}). The case of abstracts is slightly more complex. \refdbth{all_particulars} shows that if there exists at least a time interval then all the abstracts are {\bfo} particulars too. This is due to the definition of $\bfoexist$ \refdbdf{d2b_exist} that assures that abstracts exist at every time. However, while in {\dolce} the existence of endurants, perdurants, and qualities requires them to have a temporal location (and then to be present in time), see \refdolceax{d_partictime} and \refdolceth{-AB_to_PRE}, this does not hold for abstracts, i.e., it is possible to have models of {\dolce} that contain only abstracts and no time intervals. In this case we would not have {\bfo} particulars, only universals \refdbth{no_particular}.
+Theorem \refdbth{-AB_particulars} shows that endurants, perdurants, and qualities are all {\bfo} particulars (in the sense of the {\bfo} notion of particular, $\bfopartic$ defined in \refdbdf{d2b_particular}). The case of  abstracts is more complex. \refdbth{all_particulars} shows that if there exists at least a time interval then all the $\dolce$ abstracts are {\bfo} particulars too. This is due to the definition of $\bfoexist$ \refdbdf{d2b_exist} that assures that $\dolce$ abstracts exist at every time. However, while in {\dolce} the existence of endurants, perdurants, and qualities requires them to have a temporal location (and then to be present in time), see \refdolceax{d_partictime} and \refdolceth{-AB_to_PRE}, this does not hold for abstracts, i.e., it is possible to have models of {\dolce} that contain only abstracts and no time intervals. In this case we would not have {\bfo} particulars, only universals \refdbth{no_particular}.
 
 \bflist
-\item[\dolceax{d_partictime}] $(\EDdcat(x) \lor \PDdcat(x) \lor \Qdcat(x)) \to \exists t(\TLCd(x,t))$ 
+%\item[\dolceax{d_partictime}] $(\EDdcat(x) \lor \PDdcat(x) \lor \Qdcat(x)) \to \exists t(\TLCd(x,t))$ 
 
-\item[\dolceth{-AB_to_PRE}] $\thdolce \vdash (\EDdcat(x) \lor \PDdcat(x) \lor \Qdcat(x)) \to \exists t(\PREd(x,t))$
+\item[\dolceth{-AB_to_PRE}] $\thdolce \vDash (\EDdcat(x) \lor \PDdcat(x) \lor \Qdcat(x)) \to \exists t(\PREd(x,t))$
 
-\item[\dbth{-AB_particulars}] $\thdolcedbmap \vdash (\EDdcat(x) \lor \PDdcat(x) \lor \Qdcat(x)) \to \bfopartic(x)$
+\item[\dbth{-AB_particulars}] $\thdolcedbmap \vDash (\EDdcat(x) \lor \PDdcat(x) \lor \Qdcat(x)) \to \bfopartic(x)$
 
-\item[\dbth{all_particulars}] $\thdolcedbmap \vdash \exists u(\Tdcat(u)) \to \forall x(\bfopartic(x))$
+\item[\dbth{all_particulars}] $\thdolcedbmap \vDash \exists u(\Tdcat(u)) \to \forall x(\bfopartic(x))$
 
-\item[\dbth{no_particular}] $\thdolcedbmap \vdash \neg\exists u(\Tdcat(u)) \to \forall x(\bfouniv(x))$
+\item[\dbth{no_particular}] $\thdolcedbmap \vDash \neg\exists u(\Tdcat(u)) \to \forall x(\bfouniv(x))$
 
 \eflist
 
-\refdolceth{-AB_particulars} seems to conform to both (M\ref{Ass1}) and (M\ref{Ass2}), by corroborating the idea that {\dolce} particulars roughly correspond to {\bfo} particulars and that all the particulars of {\dolce} are `imported' into the ones of {\bfo}. However, \refdbth{no_particular} introduces some doubts about the nature of abstracts. The definition of $\bfoexist$ \refdbdf{d2b_exist}, starting from the fact that temporal and spatial regions are particulars in {\bfo}, extended this idea to all regions (and to all abstracts), i.e., there is a presupposition that all the regions have a uniform nature, they are all particulars in this case (even though, in {\bfo}, temporal and spatiotemporal regions are occurrents while spatial regions are continuants). However, other options are possible. One could consider, for instance, the following two variants of \refdbdf{d2b_exist}:
+\refdbth{-AB_particulars} seems to conform to both (M\ref{Ass1}) and (M\ref{Ass2}), by corroborating the idea that {\dolce} particulars roughly correspond to {\bfo} particulars and that all the particulars of {\dolce} are `imported' into the ones of {\bfo}. However, \refdbth{no_particular} introduces some doubts about the nature of abstracts. The definition of $\bfoexist$ \refdbdf{d2b_exist}, starting from the fact that temporal and spatial regions are particulars in {\bfo}, extended this idea to all regions (and to all abstracts), i.e., there is a presupposition that all the regions have a uniform nature, they are all particulars in this case (even though, in {\bfo}, temporal and spatiotemporal regions are occurrents while spatial regions are continuants). However, other options are possible. One could consider, for instance, the following two variants of \refdbdf{d2b_exist}:
 \bflist
 \item[] $\bfoexist(x,t)\sdef \PREd(x,t) \lor (\Tdcat(x) \land \Pd(t,x)) \lor (\Sdcat(x) \land \Tdcat(t))$
 \item[] $\bfoexist(x,t)\sdef \PREd(x,t)$
@@ -1697,9 +1748,9 @@ The second option excludes all abstracts, including time intervals and space reg
 In both these cases, the fact that (some) regions become universals is grounded on  \refdbdf{d2b_particular} and \refdbdf{d2b_univ}. The latter is motivated by \refbfoax{particORuniv} and \refbfoax{particNOuniv}, i.e., by the fact that the entities in the domain of {\bfo} are partitioned into universals and particulars. However, one could decide to reject  \refbfoax{particORuniv} and assume that some regions are neither {\bfo} particulars nor {\bfo} universals. They would form a kind of entity that {\bfo} does not consider. Also this option deserves a deeper analysis.
 %
 \bflist
-\item[\dolceax{TLCd_PD}] $\PDdcat(x) \to (\TLCd(x,t) \ifif \exists y(\DQTd(y,x) \land \QLd(t,y) \land \Tdcat(t)))$ 
-\item[\dolceax{SLCd_PEDs}] $\PEDdcat(x) \to (\SLCd(x,s,t) \ifif \exists y(\DQTd(y,x) \land \SLdcat(y) \land \TQLd(s,y,t)))$ 
-
+%\item[\dolceax{TLCd_PD}] $\PDdcat(x) \to (\TLCd(x,t) \ifif \exists y(\DQTd(y,x) \land \QLd(t,y) \land \Tdcat(t)))$ 
+%\item[\dolceax{SLCd_PEDs}] $\PEDdcat(x) \to (\SLCd(x,s,t) \ifif \exists y(\DQTd(y,x) \land \SLdcat(y) \land \TQLd(s,y,t)))$ 
+%
 \item[\bfoax{particORuniv}] $\bfopartic(x) \lor \bfouniv(x)$
 \hfill {\scriptsize [eto-1]}
 
@@ -1725,34 +1776,35 @@ There are also more subtle correspondences to consider. Theorem \refdbth{pd_to_p
 \item[\bfoax{proctreg2tint}] $\exists t(x\bfoiof{t}\procbcat) \land \bfotregof(x,t) \to \exists t'(t' \bfoiof{t'}\tintbcat \land \bfotpart(t',t))$
 \hfill {\scriptsize [fzy-1]}
 
-\item[\dbth{pd_to_proc_or_pbnd}] $\thdolcedbmap \vdash \PDdcat(x) \ifif (\exists t(x \bfoiof{t} \procbcat) \lor \exists t(x \bfoiof{t} \pbndbcat))$
+\item[\dbth{pd_to_proc_or_pbnd}] $\thdolcedbmap \vDash \PDdcat(x) \ifif (\exists t(x \bfoiof{t} \procbcat) \lor \exists t(x \bfoiof{t} \pbndbcat))$
 %
-%\item[\dbth{d2b_procdissect}] $\thdolcedbmap \nvdash $ \refbfoax{opart_proc1}
+%\item[\dbth{d2b_procdissect}] $\thdolcedbmap \nvDash $ \refbfoax{opart_proc1}
 %
-%\item[\dbth{d2b_opart_proc3}] $\thdolcedbmap \nvdash $ \refbfoax{opart_proc3}
+%\item[\dbth{d2b_opart_proc3}] $\thdolcedbmap \nvDash $ \refbfoax{opart_proc3}
 %
-%\item[\dbth{d2b_opart_pbnd2}] $\thdolcedbmap \nvdash $ \refbfoax{opart_pbnd2}
+%\item[\dbth{d2b_opart_pbnd2}] $\thdolcedbmap \nvDash $ \refbfoax{opart_pbnd2}
 %
-%\item[\dbth{d2b_pbndifif}] $\thdolcedbmap \nvdash $ {\refbfoax{pbndifif}}
+%\item[\dbth{d2b_pbndifif}] $\thdolcedbmap \nvDash $ {\refbfoax{pbndifif}}
 %
-%\item[\dbth{d2b_proctreg2tint}] $\thdolcedbmap \nvdash $ {\refbfoax{proctreg2tint}}
+%\item[\dbth{d2b_proctreg2tint}] $\thdolcedbmap \nvDash $ {\refbfoax{proctreg2tint}}
 \eflist
 
 
-{\bfo} presupposes that processes and process boundaries have a different temporal nature, and constrains their relationship, which is quite complex, via a set of axioms. On the other hand, \refdbdf{d2b_tinst} and \refdbdf{d2b_tint}---together with \refdbdf{d2b_pbnd} and \refdbdf{d2b_proc}\nb{CM: ho messo il rif. a pbnd}---reduce this difference to atomicity and to the existence of strictly larger (relatively to temporal parthood) perdurants. Looking at the counterexamples used in the proof of the previous theorems, this different behavior about processes and process boundaries seems mainly due to the poor approximation of the notions of temporal instant and temporal interval provided by \refdbdf{d2b_tinst} and \refdbdf{d2b_tint} together with the low commitment of {\dolce} on the existence of perdurants.  
+{\bfo} presupposes that processes and process boundaries have a different temporal nature, and constrains their relationship, which is quite complex, via a set of axioms. On the other hand, \refdbdf{d2b_tinst} and \refdbdf{d2b_tint}---together with \refdbdf{d2b_pbnd} and \refdbdf{d2b_proc}---reduce this difference to atomicity and to the existence of strictly larger (relatively to temporal parthood) perdurants. Looking at the counterexamples used in the proof of the previous theorems, this different behavior about processes and process boundaries seems mainly due to the poor approximation of the notions of temporal instant and temporal interval provided by \refdbdf{d2b_tinst} and \refdbdf{d2b_tint} together with the low commitment of {\dolce} on the existence of perdurants.  
 
-For instance, in {\dolce} it is possible to have three temporally co-localized perdurants $p_1$, $p_2$, and $p_{12}$ all with atomic temporal locations and such that  the latter is the mereological sum of the other two. %, i.e., $\SUMd(p_{12}, p_1,p_2)$. 
+For instance, in {\dolce} it is possible to have three temporally co-localized perdurants $p_1$, $p_2$, and $p_{12}$ all with atomic temporal locations and such that  $p_{12}$ is the mereological sum of $p_1$ and $p_2$. %, i.e., $\SUMd(p_{12}, p_1,p_2)$. 
 There can also be two additional perdurants $p_3$ and $p_{123}$ such that the temporal location of $p_3$ does not overlap the one of $p_1$ and $p_{123}$ is the mereological sum of $p_{12}$ and $p_{3}$. %\nb{SB: questo dovrebbe essere $p_{3}$, vero?} %also $\SUMd(p_{123}, p_{12},p_3)$ holds.
- In this scenario, according to \refdbdf{d2b_proc} and \refdbdf{d2b_treg}, $p_{1}$ is a process because, though it has an atomic temporal location, it is not a temporal proper part of anything; $p_1$ is part of $p_{12}$, but $p_{12}$ is a process boundary (against \refbfoax{opart_proc1} and \refbfoax{opart_pbnd2}) because it has an atomic temporal location and it is a proper temporal part of $p_{123}$. For another example, in {\dolce} it is possible to have perdurants that are not proper temporal parts of any other perdurant and such that all their parts are temporally co-localized with them (possibly with an atomic temporal location) and in their turn are not proper temporal part of any other perdurant (e.g., discard $p_3$ and $p_{123}$ from the previous example, keeping only $p_1, p_2$ and $p_{12}$).\nb{SB: a me questo esempio non è chiaro}\nb{CM: cos'è che non ti è chiaro}\nb{SB: no ricordo :)} According to \refdbdf{d2b_pbnd} and \refdbdf{d2b_proc},\nb{CM: ho messo il rif. a pbnd} these perdurants as well as all their parts are classified as processes against \refbfoax{opart_proc3}, \refbfoax{pbndifif}, and \refbfoax{proctreg2tint}. These examples may look `exotic', yet it is not easy to rule out them. One could get rid of some of these cases by requiring that processes have a non-atomic temporal location. Then, one needs to remove \refdbth{pd_to_proc_or_pbnd}, otherwise it would be possible to have perdurants with an atomic temporal location that are not temporal proper part of any other perdurant. 
+ In this scenario, according to \refdbdf{d2b_proc} and \refdbdf{d2b_treg}, $p_{1}$ is a process because, though it has an atomic temporal location, it is not a temporal proper part of anything; $p_1$ is part of $p_{12}$, but $p_{12}$ is a process boundary (against \refbfoax{opart_proc1} and \refbfoax{opart_pbnd2}) because it has an atomic temporal location and it is a proper temporal part of $p_{123}$. For another example, in {\dolce} it is possible to have perdurants that are not proper temporal parts of any other perdurant and such that all their parts are temporally co-localized with them (possibly with an atomic temporal location) and in their turn are not proper temporal part of any other perdurant (e.g., consider $p_1, p_2$ and $p_{12}$ in the previous example). %\nb{SB: a me questo esempio non è chiaro}\nb{CM: cos'è che non ti è chiaro}\nb{SB: no ricordo :)} 
+ According to \refdbdf{d2b_pbnd} and \refdbdf{d2b_proc}, these perdurants as well as all their parts are classified as processes against \refbfoax{opart_proc3}, \refbfoax{pbndifif}, and \refbfoax{proctreg2tint}. These examples may look `exotic', yet it is not easy to rule out them. One could get rid of some of these cases by requiring that processes have a non-atomic temporal location. Then, one needs to remove \refdbth{pd_to_proc_or_pbnd}, otherwise it would be possible to have perdurants with an atomic temporal location that are not temporal proper part of any other perdurant. 
 
 There is a further difference concerning the `temporal behavior' of {\dolce} perdurants vs.~{\bfo} occurrents. %by \refdbth{stregof_opart_equiv}, which is relative to \refbfoax{stregof_opart_equiv_ax} (meaning that the thesis of \refdbth{stregof_opart_equiv} is a modified version of \refbfoax{stregof_opart_equiv_ax}, which does not use the predicate {$\bfostregof$}). 
 In {\bfo}, occurrent parthood between processes or process boundaries is equivalent to occurrent parthood between the corresponding spatiotemporal regions, therefore different processes or process boundaries cannot be spatiotemporally co-localized. %\nb{CM: non sono sicuro su identifies [FC: magari così?]} 
 %{\bfo} identifies\nb{CM: non sono sicuro su identifies} occurrent parthood between processes or process boundaries with spatiotemporal inclusion, it follows that different processes/process boundaries cannot be spatiotemporally co-localized. 
 {\dolce} makes the opposite choice and allows for spatiotemporally co-localized perdurants. A similar situation arises between {\dolce} endurants and {\bfo} continuants as highlighted by the fact that neither \refbfoax{sregof_maten} nor \refbfoax{id_idcnt} can be proved in $\thdolcedbmap$. %\nb{SB: era scritto "both ... cannot...."}
 %\refdbth{d2b_sregof_maten} and \refdbth{d2b_id_idcnt}. 
-In {\dolce}, an amount of matter constituting a statue at a given time $t$ is different from the statue and it is not a $\TPd$-part of the statue at $t$ (and vice versa) even though the two endurants are spatially co-localized at $t$ (and possibly during their whole life), see \refdolceth{Kd_to_diff} and \refdolceax{Kd_colocalization}. Similarly, in {\dolce}, a sum of bricks is different from a wall even though they can mereologically coincide at a given time.
-This view allows for the co-existence of distinct entities in the same spatial and temporal locations. Such entities are further distinguished on the basis of their `modal' properties. In comparison, {\bfo} embraces a `reductionist' perspective by assuming that a given spatial or spatiotemporal region cannot be the location of different continuants or occurrents. In other words, space and time locations are not fundamental for the identity of entities in {\dolce}. %\nb{CM: nel teorema \refdbth{stregof_opart_equiv} manca un riferimento al mapping che riguarda lo spazio tempo, da capire se vogliamo tenere questo o invece toglierlo} 
-Thus, at first sight endurants and occurrents on the one hand, and $\TPd$ and $\bfocpart$ on the other, seem to be different ways to capture the `same' ontological category. Nonetheless, a conceptual and formal analysis shows that ${\thdolcedbmap \nvdash \refbfoax{id_idcnt}}$, highlighting that the views embraced by these systems, while apparently similar, remain deeply incompatible. %\nb{SB: spero di non aver enfatizzato troppo} These modeling differences are among the most important we found between the two ontologies. 
+In {\dolce}, an amount of matter constituting a statue at a given time $t$ is different from the statue and it is not a $\TPd$-part of the statue at $t$ (and vice versa) even though the two endurants are spatially co-localized at $t$ (and possibly during their whole life), see \refdolceax{Kd_colocalization} and \refdolceth{Kd_to_diff}. Similarly, in {\dolce}, a sum of bricks is different from a wall even though they can mereologically coincide at a given time.
+This view allows for the co-existence of distinct entities in the same spatial and temporal locations. Such entities are further distinguished on the basis of their `modal' properties. In comparison, {\bfo} embraces a `non-multiplicativist' perspective by assuming that a given spatial or spatiotemporal region cannot be the location of different continuants or occurrents (see in particular the treatment of the example of the statue and the clay in \citep{otte2022bfo}). In other words, space and time locations are not fundamental for the identity of entities in {\dolce}. %\nb{CM: nel teorema \refdbth{stregof_opart_equiv} manca un riferimento al mapping che riguarda lo spazio tempo, da capire se vogliamo tenere questo o invece toglierlo} 
+Thus, at first sight endurants and occurrents on the one hand, and $\TPd$ and $\bfocpart$ on the other, seem to be different ways to capture the `same' ontological category. Nonetheless, a conceptual and formal analysis shows that ${\thdolcedbmap \nvDash \refbfoax{id_idcnt}}$, highlighting that the views embraced by these systems, while apparently similar, remain incompatible. %\nb{SB: spero di non aver enfatizzato troppo} These modeling differences are among the most important we found between the two ontologies. 
 %
 \bflist
 %\item[\bfoax{stregof_opart_equiv_ax}] $\exists t(x \bfoiof{t} \procbcat \lor x \bfoiof{t} \pbndbcat) \land \exists t(y \bfoiof{t} \procbcat \lor y \bfoiof{t} \pbndbcat) \to \\
@@ -1763,15 +1815,15 @@ Thus, at first sight endurants and occurrents on the one hand, and $\TPd$ and $\
 \item[\bfoax{id_idcnt}] $\exists t(x \bfoiof{t} \idcntbcat \land y \bfoiof{t} \idcntbcat \land \neg(x \bfoiof{t} \objaggbcat) \land \neg(y \bfoiof{t} \objaggbcat) \land  \bfocpart(x,y,t) \land \bfocpart(y,x,t)) \to x=y$  
 \hfill {\scriptsize [tab-1]}
 
-\item[\dolceax{Kd_colocalization}] $\Kd(x,y,t) \to \forall s(\SLCd(x,s,t) \ifif \SLCd(y,s,t))$ 
+%\item[\dolceax{Kd_colocalization}] $\Kd(x,y,t) \to \forall s(\SLCd(x,s,t) \ifif \SLCd(y,s,t))$ 
 
 \item[\dolceth{Kd_to_diff}] $\Kd(x,y,t) \to x \neq y$ 
-%\item[\dbth{stregof_opart_equiv}] $\thdolcedbmap \cup \{$\refdbdf{d2b_sregofocc}$\} \nvdash \exists t(x \bfoiof{t} \procbcat \lor x \bfoiof{t} \pbndbcat) \land \exists t(y \bfoiof{t} \procbcat \lor y \bfoiof{t} \pbndbcat) \to \\
+%\item[\dbth{stregof_opart_equiv}] $\thdolcedbmap \cup \{$\refdbdf{d2b_sregofocc}$\} \nvDash \exists t(x \bfoiof{t} \procbcat \lor x \bfoiof{t} \pbndbcat) \land \exists t(y \bfoiof{t} \procbcat \lor y \bfoiof{t} \pbndbcat) \to \\
 %\mbox{}\hfill{} \bfoopart(x,y) \ifif \forall t(\bfoexist(x,t) \to \exists rs(\bfosregofocc(x,r,t) \land \bfosregofocc(y,s,t) \land \bfocpart(r,s,t)))$\nb{FC: ricordarsi sezione STREG}
 \eflist
 
-These are not the only differences, of course. From ${\thdolcedbmap \nvdash \refbfoax{cpart_wext}}$ we see that the $\bfocpart$ (as defined in \refdbdf{d2b_cpart}) does not satisfy the supplementation principle, and from ${\thdolcedbmap \nvdash \refbfoax{ex_cprod}}$ that the existence of the product is not guaranteed. %(where $\bfocoverlap$ is standardly defined as in \refbfodf{coverlap}). 
-Note that the existence of products cannot be inferred for $\bfoopart$ either since ${\thdolcedbmap \nvdash \refbfoax{existence_oprod}}$. % where $\bfoooverlap$ is defined as in \refbfodf{ooverlap}.%\nb{CM: forse portare la nota nel testo e aggiungere i teoremi/assiomi necessari [FC: fatto]} 
+These are not the only differences, of course. From ${\thdolcedbmap \nvDash \refbfoax{cpart_wext}}$ we see that the $\bfocpart$ (as defined in \refdbdf{d2b_cpart}) does not satisfy the supplementation principle, and from ${\thdolcedbmap \nvDash \refbfoax{ex_cprod}}$ that the existence of the product is not guaranteed. %(where $\bfocoverlap$ is standardly defined as in \refbfodf{coverlap}). 
+Note that the existence of products cannot be inferred for $\bfoopart$ either since ${\thdolcedbmap \nvDash \refbfoax{existence_oprod}}$. % where $\bfoooverlap$ is defined as in \refbfodf{ooverlap}.%\nb{CM: forse portare la nota nel testo e aggiungere i teoremi/assiomi necessari [FC: fatto]} 
 %\footnote{There are other differences: \refdbth{d2b_cpart_wext} shows that the $\bfocpart$ (as defined in \refdbdf{d2b_cpart}) does not satisfy the supplementation axiom, and \refdbth{d2b_ex_cprod} that the existence of the product is not guaranteed. Note that the existence of products cannot be inferred for $\bfoopart$ \refdbth{d2b_existence_oprod} either.}\nb{CM: forse portare la nota nel testo e aggiungere i teoremi/assiomi necessari} 
 %
 \bflist
@@ -1790,17 +1842,17 @@ Note that the existence of products cannot be inferred for $\bfoopart$ either si
 \item[\bfoax{existence_oprod}] $\exists z(\bfoopart(z,x) \land \bfoopart(z,y)) \to \exists z(\forall w(\bfoopart(w,z) \ifif \bfoopart(w,x) \land \bfoopart(w,y)))$
 \hfill {\scriptsize [hpc-1]} 
 
-%\item[\dbth{d2b_sregof_maten}]  $\thdolcedbmap \nvdash $ \refbfoax{sregof_maten}
+%\item[\dbth{d2b_sregof_maten}]  $\thdolcedbmap \nvDash $ \refbfoax{sregof_maten}
 
-%\item[\dbth{d2b_id_idcnt}] $\thdolcedbmap \nvdash $ {\refbfoax{id_idcnt}}
+%\item[\dbth{d2b_id_idcnt}] $\thdolcedbmap \nvDash $ {\refbfoax{id_idcnt}}
 
-%\item[\dbth{d2b_cpart_wext}] $\thdolcedbmap \nvdash $ {\refbfoax{cpart_wext}}
+%\item[\dbth{d2b_cpart_wext}] $\thdolcedbmap \nvDash $ {\refbfoax{cpart_wext}}
 %
-%\item[\dbth{d2b_ex_cprod}] $\thdolcedbmap \nvdash $ {\refbfoax{ex_cprod}}
+%\item[\dbth{d2b_ex_cprod}] $\thdolcedbmap \nvDash $ {\refbfoax{ex_cprod}}
 %
-%\item[\dbth{d2b_existence_oprod}] $\thdolcedbmap \nvdash $ {\refbfoax{existence_oprod}}
+%\item[\dbth{d2b_existence_oprod}] $\thdolcedbmap \nvDash $ {\refbfoax{existence_oprod}}
 %
-%\item[\dbth{stregof_opart_equiv}] $\thdolcedbmap \cup \{$\refdbdf{d2b_sregofocc}$\} \nvdash \exists t(x \bfoiof{t} \procbcat \lor x \bfoiof{t} \pbndbcat) \land \exists t(y \bfoiof{t} \procbcat \lor y \bfoiof{t} \pbndbcat) \to \\
+%\item[\dbth{stregof_opart_equiv}] $\thdolcedbmap \cup \{$\refdbdf{d2b_sregofocc}$\} \nvDash \exists t(x \bfoiof{t} \procbcat \lor x \bfoiof{t} \pbndbcat) \land \exists t(y \bfoiof{t} \procbcat \lor y \bfoiof{t} \pbndbcat) \to \\
 %\mbox{}\hfill{} \bfoopart(x,y) \ifif \forall t(\bfoexist(x,t) \to \exists rs(\bfosregofocc(x,r,t) \land \bfosregofocc(y,s,t) \land \bfocpart(r,s,t)))$\nb{FC: ricordarsi sezione STREG}
 
 
@@ -1827,7 +1879,7 @@ Note that the antisymmetry of $\bfocpart$ is again lost: the bricks and the wall
 \footnote{A similar analysis holds on occurrents.}% as highlighted by \refdbth{stregof_opart_equiv}.}
 
 %\medskip
-These examples suggest to follow a different approach, possibly closer to the original commitments of the two ontologies. Consider again the example of the statue and the clay, or the brick and the wall. There are two different endurants that are spatially coincident at least at a given time. One can think that \refbfoax{sregof_maten} and \refbfoax{id_idcnt} aim at ruling out these kinds of examples: it is not a matter of avoiding spatial coincidence or parthood between the brick and the wall, their goal, one could argue, is to rule out one of these two entities, i.e., to rule out from the domain  of quantification of $\bfo$, either the brick or the wall (both of them are in the domain of $\dolce$).\footnote{This is in contrast with (M\ref{Ass2}) and with the mappings that, vice versa, allow to import all the endurants of {\dolce} into {\bfo}.}
+These examples suggest to follow a different approach, possibly closer to the original commitments of the two ontologies. Consider again the example of the statue and the clay, or the bricks and the wall. There are two different endurants that are spatially coincident at least at a given time. One can think that \refbfoax{sregof_maten} and \refbfoax{id_idcnt} aim at ruling out these kinds of examples: it is not a matter of avoiding spatial coincidence or parthood between the bricks and the wall, their goal, one could argue, is to rule out one of these two entities, i.e., to rule out from the domain  of quantification of $\bfo$, either the bricks or the wall (both of them are in the domain of $\dolce$).\footnote{This is in contrast with (M\ref{Ass2}) and with the mappings that, vice versa, allow to import all the endurants of {\dolce} into {\bfo}.}
 %\nb{SB: il testo della nota mi confonde}\nb{CM: provato a cambiare la fine della frase prima della nota} 
 One can then adopt a strategy that `filters out' some of the {\dolce} endurants. Setting this filter is not trivial. For the case of the statue and the clay, one can rely on the fact that constitution is a sort of order relation in {\dolce}. One can maintain the substratum (the clay) as an element in the domain, and discard the statue due to the fact that it is the substratum that constitutes the statue. However, in the case of the bricks and the wall we cannot use $\TPd$ to do the same, because $\TPd$ is not asymmetric while constitution is.
 %we cannot rely on $\TPd$ because the sum of the bricks is part of the wall and the wall is part of the sum of the bricks. 
@@ -1837,17 +1889,17 @@ One needs to find a different relation or some other principle to rule out one o
 The analysis of more refined correspondences, like \refdbth{MorPOB_not_cnt}, \refdbth{inst_MorPOB_to_mten}, and \refdbth{mten_not_PED}, confirms that temporally extended amounts of matters and physical objects are material entities. The other direction does not hold since non-physical endurants could very well be material entities. However,  \refdbth{pd_to_proc_or_pbnd}, \refdbth{MorPOB_not_cnt}, together with \refdbth{F_not_cnt}, \refdbth{Q_not_cnt}, and \refdbth{NPED_not_cnt}, show that there are endurants and qualities, all of which are particulars (see \refdbth{-AB_particulars}), that are neither continuants nor occurrents. This means that the partition of particulars into continuants and occurrents, assumed by {\bfo}, is not preserved by the mapping: some endurants and qualities end up in an ontological `limbo'. 
 %
 \bflist
-\item[\dbth{MorPOB_not_cnt}] $\thdolcedbmap \nvdash (\Mdcat(x) \lor \POBdcat(x)) \to \exists t(x \bfoiof{t} \cntbcat)$
+\item[\dbth{MorPOB_not_cnt}] $\thdolcedbmap \nvDash (\Mdcat(x) \lor \POBdcat(x)) \to \exists t(x \bfoiof{t} \cntbcat)$
 
-\item[\dbth{inst_MorPOB_to_mten}] $\thdolcedbmap \vdash (\Mdcat(x) \lor \POBdcat(x)) \land \exists t(\TLCd(x,t) \land \neg \ATd(t)) \to \exists t(x \bfoiof{t} \mtenbcat)$
+\item[\dbth{inst_MorPOB_to_mten}] $\thdolcedbmap \vDash (\Mdcat(x) \lor \POBdcat(x)) \land \exists t(\TLCd(x,t) \land \neg \ATd(t)) \to \exists t(x \bfoiof{t} \mtenbcat)$
 
-\item[\dbth{mten_not_PED}] $\thdolcedbmap \nvdash \exists t(x \bfoiof{t} \mtenbcat) \to \PEDdcat(x)$
+\item[\dbth{mten_not_PED}] $\thdolcedbmap \nvDash \exists t(x \bfoiof{t} \mtenbcat) \to \PEDdcat(x)$
 
-\item[\dbth{F_not_cnt}] $\thdolcedbmap \nvdash \Fdcat(x) \to \exists t(x \bfoiof{t} \cntbcat)$
+\item[\dbth{F_not_cnt}] $\thdolcedbmap \nvDash \Fdcat(x) \to \exists t(x \bfoiof{t} \cntbcat)$
 
-\item[\dbth{Q_not_cnt}] $\thdolcedbmap \nvdash \Qdcat(x) \to \exists t(x \bfoiof{t} \cntbcat)$
+\item[\dbth{Q_not_cnt}] $\thdolcedbmap \nvDash \Qdcat(x) \to \exists t(x \bfoiof{t} \cntbcat)$
 
-\item[\dbth{NPED_not_cnt}] $\thdolcedbmap \nvdash \NPEDdcat(x) \to \exists t(x \bfoiof{t} \cntbcat)$
+\item[\dbth{NPED_not_cnt}] $\thdolcedbmap \nvDash \NPEDdcat(x) \to \exists t(x \bfoiof{t} \cntbcat)$
 \eflist
 
 On the other hand, the imported entities do not necessarily cover all the categories of {\bfo}. There are at least two reasons for that, one factual and one structural. The factual reason is that some of the {\dolce} categories may be empty. For instance, if there are no features, then $\imenbcat$ would be empty. Consequently, axiom \refbfoax{univ_are_insta}, which states that all universals are non-empty, is not preserved. The structural reason is that, according to the mapping, some categories (as defined in the definitions) are necessarily empty. 
@@ -1869,16 +1921,16 @@ In this section we introduce syntactic definitions of {\dolce} notions in terms 
 The starting point is the domain of {\bfo}. We aim to classify and relate the entities in this domain in terms of the categories and relations of {\dolce}.
 Analogously to the {\dolce} to {\bfo} direction of Sect. \ref{sect_d2b} and with similar motivations (see the analysis of Sect. \ref{sect_analysis_b2d}), we obtain only a partial mapping covering a subset of the categories and primitives of {\dolce}.  
 
-As discussed in Sect.~\ref{sect_diff_resolution}, in {\dolce} the agentive and social dimensions play an important role in characterizing the subcategories of physical object ($\POBdcat$) and non-physical endurant ($\NPEDdcat$) but those dimensions are not considered in {\bfo}. Similarly, the subcategories of perdurant ($\PDdcat$) rely on the notions of homeomericity and cumulativity, but these notions are beyond the scope of {\bfo}. This leads to exclude these subcategories from the mapping. Furthermore, while it is not clear how the distinction between amounts of matter and physical objects can be made, regarding features we can rely on the {\bfo} categories of site, continuant fiat boundary and fiat object. Thus, within the category of physical endurants ($\PEDdcat$) we include in the mapping only the category of features ($\Fdcat$). 
+As discussed in Sect.~\ref{sect_diff_resolution}, in {\dolce} the agentive and social dimensions play an important role in characterizing the subcategories of physical object ($\POBdcat$) and non-physical endurant ($\NPEDdcat$) but those dimensions are not considered in {\bfo}. Similarly, the subcategories of perdurant ($\PDdcat$) rely on the notions of homeomericity and cumulativity, but these notions are beyond the scope of {\bfo}. This leads to excluding these subcategories from the mapping. Furthermore, while it is not clear how the distinction between amounts of matter and physical objects can be made, regarding features we can rely on the {\bfo} categories of site, continuant fiat boundary and fiat object part. Thus, within the category of physical endurants ($\PEDdcat$) we include in the mapping only the category of features ($\Fdcat$). 
 
 We will see that physical endurants correspond to independent continuants that are not regions,
 see \refbddf{b2d_PEDdcat}, while the only entities that can be mapped to non-physical endurants are generically dependent continuants, see \refbddf{b2d_NPEDdcat}. In {\dolce}, arbitrary sums ($\ASdcat$) have necessarily a physical and a non-physical part, see \refdolceax{TPd_AS}. To match this axiom, in {\bfo} we should find continuants that are not spatial regions and are neither independent nor generically dependent continuants. The only option is that of specifically dependent continuants. However, following our guidelines in Sect. \ref{sect_methodology}, these are mapped to {\dolce} physical qualities, as formalized in \refbddf{b2d_PQdcat}. As a result, the category $\ASdcat$ of arbitrary sums would be empty. For this reason, $\ASdcat$ is not covered in the mapping.   
-%
-\bflist
-\item[\dolceax{TPd_AS}] $\ASdcat(x) \to \exists yzut(\TPd(y,x,t) \land \PEDdcat(y) \land \TPd(z,x,u) \land \NPEDdcat(z))$  
-\eflist
+%%
+%\bflist
+%\item[\dolceax{TPd_AS}] $\ASdcat(x) \to \exists yzut(\TPd(y,x,t) \land \PEDdcat(y) \land \TPd(z,x,u) \land \NPEDdcat(z))$  
+%\eflist
 
-In Sect.~\ref{sect_analysis_d2b} we have seen that one of the main differences between {\dolce} and {\bfo} concerns the reduction of the parthood relations to spatial and spatiotemporal inclusions. In particular, in {\bfo} there are no spatially co-localized distinct independent continuants (that are not object aggregates) and there are no spatiotemporally co-localized distinct occurrents. We then lack one of the main basis to build a constitution relation among endurants and perdurants. In principle, one could see the relation between a generic dependent continuant and the mereological sum of its carriers at a given time as a form of constitution. This solution is debatable and would model only a very limited notion of constitution, quite different from the general one in {\dolce}. Thus, we refrain from introducing $\Kd$ in the mapping.  
+In Sect.~\ref{sect_analysis_d2b} we have seen that one of the main differences between {\dolce} and {\bfo} concerns the reduction of the parthood relations to spatial and spatiotemporal inclusions. In particular, in {\bfo} there are no spatially co-localized distinct independent continuants (that are not object aggregates) and there are no spatiotemporally co-localized distinct occurrents. We then lack one of the main basis to build a constitution relation among endurants and perdurants. In principle, one could see the relation between a generically dependent continuant and the mereological sum of its carriers at a given time as a form of constitution. This solution is debatable and would model only a very limited notion of constitution, quite different from the general one in {\dolce}. Thus, we refrain from introducing $\Kd$ in the mapping.  
 
 Concerning qualities, {\bfo} accepts only qualities inhering in independent continuants. From the point of view of {\dolce}, this restricts the mapping to physical qualities only, see \refbddf{b2d_Qdcat}. 
 
@@ -1914,7 +1966,7 @@ Perdurants coincide with the disjunction of processes and process boundaries.
 \item[\bddf{b2d_EDdcat}] $\EDdcat(x)\sdef x \bfoiof{} \cntbcat \land \neg(x \bfoiof{} \sregbcat) \land \neg(x \bfoiof{} \sdcntbcat)$
 
 \vspace{1pt}
-We rule out from endurants temporal and spatial regions that are mapped, respectively, to time intervals and space regions, see \refbddf{b2d_Tdcat} and \refbddf{b2d_Sdcat}.
+We rule out from endurants spatial regions and specifically dependent continuant that are mapped, respectively, to space regions and physical qualities, see \refbddf{b2d_Sdcat} and \refbddf{b2d_PQdcat}.
 
 \item[\bddf{b2d_PEDdcat}] $\PEDdcat(x)\sdef x \bfoiof{} \idcntbcat \land \neg(x \bfoiof{} \sregbcat)$
 
@@ -1924,7 +1976,7 @@ Physical endurants are independent continuants that are not spatial regions.
 \item[\bddf{b2d_Fdcat}] $\Fdcat(x)\sdef x \bfoiof{} \sitebcat \lor x \bfoiof{} \cfbndbcat \lor x \bfoiof{} \fobjbcat$
 
 \vspace{1pt}
-Features are the union of sites, continuant fiat boundaries, and fiat objects.
+Features are the union of sites, continuant fiat boundaries, and fiat object parts.
 
 \item[\bddf{b2d_NPEDdcat}] $\NPEDdcat(x)\sdef x \bfoiof{} \gdcntbcat$
 
@@ -2122,7 +2174,7 @@ Concerning the preservation of {\dolce}, our results show that the majority of t
 
 Few, and quite technical, differences between the two theories seem to cause several systematic problems for a comprehensive mapping. In {\dolce}, $\PREd$ is defined only for the entities that have a temporal extension, see \refdolcedf{dfPREd}, while in {\bfo} $\bfoexist$ is a primitive relation.\footnote{One could think that $\bfotregof$ corresponds to $\TLCd$ but actually $\bfotregof$ is defined only for occurents and it is only minimally related to $\bfoexist$.} % The counterexample\nb{rivedere dopo aver posizionato i controesempi} for \refbdth{b2d_d_partictime} shows that i
 In {\bfo} an entity may exist at two non overlapping temporal regions without existing at any bigger temporal region. In these situations the condition $\forall u(\bfoexist(x,u) \ifif \bfotpart(u,t))$ in the definition of $\TLCd(x,t)$, see \refbddf{b2d_TLCd}, is never satisfied and the relation $\PREd$ is not satisfied. This problem impacts the preservation of several axioms of {\dolce}  %on the proofs in Sect.~\ref{sect_check_dolce_preservation} 
-because $\PREd$ is heavily used in the characterization of the primitives of {\dolce} (in particular ${\thbfobdmap \nvdash \refdolceax{d_partictime}}$). At the same time, this problem seems to have a technical, more than ontological, nature; after all, in both ontologies the entity exists at both times. A similar problem affects axioms like  \refdolceax{TPd_temp_addictivity} and \refdolceax{PCd_temp_addictivity} where from the holding of a given relation at two times, one would expect to infer that the relation holds also at the sum of the times (provided such sum exists). 
+because $\PREd$ is heavily used in the characterization of the primitives of {\dolce} (in particular ${\thbfobdmap \nvDash \refdolceax{d_partictime}}$). At the same time, this problem seems to have a technical, more than ontological, nature; after all, in both ontologies the entity exists at both times. A similar problem affects axioms like  \refdolceax{TPd_temp_addictivity} and \refdolceax{PCd_temp_addictivity} where from the holding of a given relation at two times, one would expect to infer that the relation holds also at the sum of the times (provided such sum exists). 
 However, the fact that an entity exists at two times but not at their sum prevents, for the majority of relations, the possibility for the relation to hold at the sum.%\nb{CM: la frase che avevi scritto tu secondo me non andava bene, ho quindi rimesso la precedente modificandola un po'}\nb{SB: ok}
 %Generally, a temporary relation does not hold at a time unless all the related entities exist at that time, thus when it applies to two entities that exist at different temporal regions that relation may not hold at the temporal region which is their sum.\nb{SB: mancava qualcosa in questa frase, ho cercato di dare un senso. Da controllare!!}
  %, a theorem analogous to \refbdth{b2d_TPd_temp_addictivity} and \refbdth{b2d_PCd_temp_addictivity} is falsified.
@@ -2133,25 +2185,25 @@ The {\bfo} relation $\bfosregof$ is one of these relations: a continuant can occ
 This fact, together with the definition of $\SLCd$ \refbddf{b2d_SLCd}, clarifies why \refdolceax{TPd_up_slc} and several other {\dolce} theorems involving $\SLCd$ are falsified.
 %The presence of spatiotemporal regions and $\bfotproj/\bfosproj$ relations together with the intricate links between $\bfosregof$, $\bfoopart$, $\bfocpart$, $\bfolocated$, and $\bfooccurs$ further complicates the domain of space and spatial location (at least from the formal perspective), impacting all the theorems involving $\SLCd$.
 %
-\bflist
-\item[\dolcedf{dfPREd}] $\PREd(x,t) \sdef \exists u(\TLCd(x,u) \land \Pd(t,u))$ 
+%\bflist
+%\item[\dolcedf{dfPREd}] $\PREd(x,t) \sdef \exists u(\TLCd(x,u) \land \Pd(t,u))$ 
 
-%\item[\dolceax{d_partictime}] $(\EDdcat(x) \lor \PDdcat(x) \lor \Qdcat(x)) \to \exists t(\TLCd(x,t))$ 
-
-\item[\dolceax{TPd_temp_addictivity}] $\TPd(x,y,t) \land \TPd(x,y,u) \land \SUMd(s,t,u) \to \TPd(x,y,s)$ 
-
-\item[\dolceax{PCd_temp_addictivity}] $\PCd(x,y,t) \land \PCd(x,y,u) \land \SUMd(s,t,u) \to \PCd(x,y,s)$ 
-
-\item[\dolceax{TPd_up_slc}] $\TPd(x,y,t) \land \SLCd(x,s,t) \to \exists r (\SLCd(y,r,t))$ 
-
-%\item[\bdth{b2d_d_partictime}] $\thbfobdmap \nvdash $ {\refdolceax{d_partictime}} 
-
-%\item[\bdth{b2d_TPd_temp_addictivity}] $\thbfobdmap \nvdash $ {\refdolceax{TPd_temp_addictivity}} 
+%%\item[\dolceax{d_partictime}] $(\EDdcat(x) \lor \PDdcat(x) \lor \Qdcat(x)) \to \exists t(\TLCd(x,t))$ 
 %
-%\item[\bdth{b2d_PCd_temp_addictivity}] $\thbfobdmap \nvdash $ {\refdolceax{PCd_temp_addictivity}}
+%\item[\dolceax{TPd_temp_addictivity}] $\TPd(x,y,t) \land \TPd(x,y,u) \land \SUMd(s,t,u) \to \TPd(x,y,s)$ 
 %
-%\item[\bdth{b2d_TPd_up_slc}] $\thbfobdmap \nvdash $ {\refdolceax{TPd_up_slc}} 
-\eflist
+%\item[\dolceax{PCd_temp_addictivity}] $\PCd(x,y,t) \land \PCd(x,y,u) \land \SUMd(s,t,u) \to \PCd(x,y,s)$ 
+%
+%\item[\dolceax{TPd_up_slc}] $\TPd(x,y,t) \land \SLCd(x,s,t) \to \exists r (\SLCd(y,r,t))$ 
+%
+%%\item[\bdth{b2d_d_partictime}] $\thbfobdmap \nvDash $ {\refdolceax{d_partictime}} 
+%
+%%\item[\bdth{b2d_TPd_temp_addictivity}] $\thbfobdmap \nvDash $ {\refdolceax{TPd_temp_addictivity}} 
+%%
+%%\item[\bdth{b2d_PCd_temp_addictivity}] $\thbfobdmap \nvDash $ {\refdolceax{PCd_temp_addictivity}}
+%%
+%%\item[\bdth{b2d_TPd_up_slc}] $\thbfobdmap \nvDash $ {\refdolceax{TPd_up_slc}} 
+%\eflist
 
 
 This analysis suggests that a different mapping technique may be needed. Rather than encapsulating the relation between $\bfoexist$ and $\TLCd$ into the mapping  \refbddf{b2d_TLCd}, one could take a more articulated procedure: first introduce a direct mapping between $\bfoexist$ and $\PREd$, then define $\TLCd$ by using $\PREd$ (as defined in the mapping), e.g.,
@@ -2166,25 +2218,25 @@ In this way, entities that, for instance, exist at two times but not at their me
 %\medskip
 The problems highlighted up to this point were discussed because of their impact but are primarily of technical nature. The mapping highlights also genuine ontological differences.
 % that do not depend on technical choices in the mapping.\nb{SB: ho riscritto} 
-First, the defined $\Pd$, like $\bfoopart$, does not satisfy the supplementation axiom \refdolceax{PdSupp} assumed in {\dolce}. Second, the relation $\bfoinh$ is not equivalent to the original $\DQTd$, in particular it does not satisfy the non-migration principle \refdolceax{DQTdUnicity}. For relational qualities this can be problematic if, for instance, one wants to distinguish ``Mary loves John'' from ``John loves Mary'': in both cases we obtain a relational quality inhering in both John and Mary. Third, the reflexivity of the defined $\TPd$, like the one of $\bfocpart$, does not hold for all the continuants. It follows that in {\bfo} one can have continuants for which $\bfocpart$ is not defined.  Fourth, while in {\dolce} all the perdurants have participants at every time they exist \refdolceax{PCd_existence_participant}, in {\bfo}, processes need to have at least a participant but this does not hold for process boundaries. Furthermore, in {\bfo}, continuants do not necessarily participate in processes while in {\dolce} all the endurants participate in a process when they exist \refdolceax{PCd_existence_perdurant}.
+First, the defined $\Pd$, like $\bfoopart$, does not satisfy the supplementation axiom \refdolceax{PdSupp} assumed in {\dolce}. Second, the relation $\bfoinh$ is not equivalent to the original $\DQTd$, in particular it does not satisfy \refdolceax{DQTdUnicity}, i.e., the fact that (direct) qualities inhere in a unique bearer. For relational qualities this can be problematic if, for instance, one wants to distinguish ``Mary loves John'' from ``John loves Mary'': in both cases we obtain a relational quality inhering in both John and Mary. Third, the reflexivity of the defined $\TPd$, like the one of $\bfocpart$, does not hold for all the continuants. It follows that in {\bfo} one can have continuants for which $\bfocpart$ is not defined.  Fourth, while in {\dolce} all the perdurants must have participants at every time they exist \refdolceax{PCd_existence_participant}, {\bfo} guarantees the existence of participants for processes but not for process boundaries (see axiom [tlr-1] in $\bfocl$). Furthermore, in {\bfo}, continuants do not necessarily participate in processes while in {\dolce} all the endurants participate in a process when they exist \refdolceax{PCd_existence_perdurant}.
 %
-\bflist
-\item[\dolceax{PdSupp}] $(\ABdcat(x) \lor \PDdcat(x)) \land \neg\Pd(x,y) \to \exists z (\Pd(z,x) \land \neg \Od(z,y))$ 
-
-\item[\dolceax{DQTdUnicity}] $\DQTd(x,y) \land \DQTd(x,z) \to y=z$ 
-
-\item[\dolceax{PCd_existence_participant}] $\PDdcat(x) \land \PREd(x,t) \to \exists yu(\Pd(u,t) \land \PCd(y,x,u))$ 
-
-\item[\dolceax{PCd_existence_perdurant}] $\EDdcat(x) \land \PREd(x,t) \to \exists yu (\Pd(u,t) \land \PCd(x,y,u))$ 
-
-%\item[\bdth{b2d_PdSupp}] $\thbfobdmap \nvdash $ {\refdolceax{PdSupp}} 
+%\bflist
+%\item[\dolceax{PdSupp}] $(\ABdcat(x) \lor \PDdcat(x)) \land \neg\Pd(x,y) \to \exists z (\Pd(z,x) \land \neg \Od(z,y))$ 
 %
-%\item[\bdth{b2d_DQTdUnicity}] $\thbfobdmap \nvdash $ {\refdolceax{DQTdUnicity}} 
+%\item[\dolceax{DQTdUnicity}] $\DQTd(x,y) \land \DQTd(x,z) \to y=z$ 
 %
-%\item[\bdth{b2d_PCd_existence_participant}] $\thbfobdmap \nvdash $ {\refdolceax{PCd_existence_participant}} 
+%\item[\dolceax{PCd_existence_participant}] $\PDdcat(x) \land \PREd(x,t) \to \exists yu(\Pd(u,t) \land \PCd(y,x,u))$ 
 %
-%\item[\bdth{b2d_PCd_existence_perdurant}] $\thbfobdmap \nvdash $ {\refdolceax{PCd_existence_perdurant}} 
-\eflist
+%\item[\dolceax{PCd_existence_perdurant}] $\EDdcat(x) \land \PREd(x,t) \to \exists yu (\Pd(u,t) \land \PCd(x,y,u))$ 
+%
+%%\item[\bdth{b2d_PdSupp}] $\thbfobdmap \nvDash $ {\refdolceax{PdSupp}} 
+%%
+%%\item[\bdth{b2d_DQTdUnicity}] $\thbfobdmap \nvDash $ {\refdolceax{DQTdUnicity}} 
+%%
+%%\item[\bdth{b2d_PCd_existence_participant}] $\thbfobdmap \nvDash $ {\refdolceax{PCd_existence_participant}} 
+%%
+%%\item[\bdth{b2d_PCd_existence_perdurant}] $\thbfobdmap \nvDash $ {\refdolceax{PCd_existence_perdurant}} 
+%\eflist
 
 %============================================
 \section{Grounding OWL mappings on FOL mappings}\label{sect_FOL_OWL}
@@ -2194,9 +2246,9 @@ For both $\bfo$ and $\dolce$ an OWL version exists. These versions are used when
 
 In OWL, $\mathit{subClassOf}$ mappings are arguably among the most important ones. A $\mathit{subClassOf}$ mapping assures that a class of an ontology is subsumed by a class of another ontology. To justify a $\mathit{subClassOf}$ mapping from $\pr{C_b}$ to $\pr{C_d}$ where, for instance, $\pr{C_b}$ is a $\bfo$ category and $\pr{C_d}$ is a $\dolce$ category, the following two conditions must hold (where $\pr{SUB}(\pr{C_d})$ is the set of all the subcategories of $\pr{C_d}$ in the $\dolce$ taxonomy in Fig.~\ref{fig_tax_dolce} that have been explicitly considered in the mapping from $\bfo$ to $\dolce$):
 \bflist
-\item[(c1)] $\thbfobdmap \vdash \exists t(x \bfoiof{t} \cn{C_b}) \to \pr{C_d}(x)$ 
-\item[(c2)] $\thbfobdmap \nvdash \exists t(x \bfoiof{t}  \cn{C_b}) \to \pr{C}(x)$, for all $\pr{C} \in \pr{SUB}(\pr{C_d})$ 
-%\item[] $\thbfobdmap \nvdash \exists t(x \bfoiof{t} \mtenbcat) \to \NPEDdcat(x)$ 
+\item[(c1)] $\thbfobdmap \vDash \exists t(x \bfoiof{t} \cn{C_b}) \to \pr{C_d}(x)$ 
+\item[(c2)] $\thbfobdmap \nvDash \exists t(x \bfoiof{t}  \cn{C_b}) \to \pr{C}(x)$, for all $\pr{C} \in \pr{SUB}(\pr{C_d})$ 
+%\item[] $\thbfobdmap \nvDash \exists t(x \bfoiof{t} \mtenbcat) \to \NPEDdcat(x)$ 
 \eflist
 %
 Condition (c1) assures that $\pr{C_b}$ is subsumed by $\pr{C_d}$ while (c2) assures that $\pr{C_b}$ is not subsumed by any subcategory of $\pr{C_d}$, i.e., (c1)+(c2) guarantee that $\pr{C_d}$ is the minimal $\dolce$ category subsuming $\pr{C_b}$.  
@@ -2205,15 +2257,15 @@ For instance, the holding of:
 %
 \bflist
 %\item $\mathtt{sucClassOf(BFO{:}}$`$\mathtt{material \ entity}$' $\mathtt{DOLCE{:}Endurant)}$
-\item[] $\thbfobdmap \vdash \exists t(x \bfoiof{t} \mtenbcat) \to \EDdcat(x)$ 
-\item[] $\thbfobdmap \nvdash \exists t(x \bfoiof{t} \mtenbcat) \to \PEDdcat(x)$ 
-\item[] $\thbfobdmap \nvdash \exists t(x \bfoiof{t} \mtenbcat) \to \NPEDdcat(x)$ 
+\item[] $\thbfobdmap \vDash \exists t(x \bfoiof{t} \mtenbcat) \to \EDdcat(x)$ 
+\item[] $\thbfobdmap \nvDash \exists t(x \bfoiof{t} \mtenbcat) \to \PEDdcat(x)$ 
+\item[] $\thbfobdmap \nvDash \exists t(x \bfoiof{t} \mtenbcat) \to \NPEDdcat(x)$ 
 \eflist
  %
 justifies a $\mathit{subClassOf}$ mapping from $\bfo$ material entities to $\dolce$ endurants (the category $\ASdcat$ of arbitrary sums has been ruled out from the mapping from $\bfo$ to $\dolce$). 
 
-A similar reasoning can be done for $\mathit{disjointWith}$ and $\mathit{subPropertyOf}$ mappings. Note however that sub-properties mappings often require to restrict the domain and range of the source relation to conjunctions of classes.  To explicitly express this kind of mappings, the Semantic Web Rule Language (SWRL)  \citep{swirl} %is
-might be needed.\nb{CM: non sono sicurissimo di questo, non ricordo più bene, inoltre serve un riferimento}\nb{SB: ho indebolito mettendo "might", direi di lasciare così}
+A similar reasoning can be done for $\mathit{disjointWith}$ and $\mathit{subPropertyOf}$ mappings. Note however that sub-properties mappings often require to restrict the domain and range of the source relation to conjunctions of classes.  To explicitly express this kind of mappings, the Semantic Web Rule Language (SWRL)\footnote{\url{https://www.w3.org/Submission/SWRL/}} %is
+might be needed.%\nb{CM: non sono sicurissimo di questo, non ricordo più bene, inoltre serve un riferimento}\nb{SB: ho indebolito mettendo "might", direi di lasciare così}
 
 The OWL-versions of $\bfo$ and $\dolce$ and all the identified OWL-mappings are available at the GitHub repository at \url{https://github.com/OntoCommons/OntologyFramework}.  
 
@@ -2228,19 +2280,152 @@ Furthermore, it has applied this approach to two well-known ontologies, namely {
 The applied ontology research community has not yet investigated in depth the formal alignment of foundational ontologies. One can imagine the development of a toolkit of strategies, assumptions and methodologies to guide the construction of formal ontology alignments depending on what one aims to preserve across the systems. Some alternatives have been already highlighted in the paper, including a discussion of their consequences. Yet, there are many alternatives and we lack even a general framework to systematically classify them. 
 Overall, the study in this paper has made clear that the strong interactions existing across the notions used in a foundational ontology, let them be categories or relations, may turn even small changes in the adopted definitions into important changes in how much of the two systems the mapping may hope to align.
 
-As foundational ontologies mature in terms of their formalization and conceptual coherence, the exploitation of formal alignments across these systems acquires more relevance and gets the community closer to the construction of ontology-based marketplace for reliable data and information exchange.
+As foundational ontologies mature in terms of their formalization and conceptual coherence, the exploitation of formal alignments across these systems acquires more relevance and gets the community closer to the construction of an ontology-based marketplace for reliable data and information exchange.
 
 In the future, we plan to deepen the analysis here presented comparing what can be gained and lost depending on the strategy, assumptions and methodologies. We are also investigating formal alignments across other ontological systems that rely on with quite different ontological viewpoints like the EMMO ontology \citep{EMMO}.
 
 %=================================================
 
 \begin{acks}
-This material has been developed within the OntoCommons project (GA 958371, ontocommons.eu). The authors thank the participants of the OntoCommons project for their support and in particular Emanuele Ghedini, Francesco A. Zaccarini, Nicola Guarino, Daniele Porello, and Laure Vieu.
+This material has been developed within the OntoCommons project (GA 958371, ontocommons.eu). The authors thank the participants of the OntoCommons project for their support and in particular Emanuele Ghedini, Francesco A. Zaccarini, Luca Biccheri, Nicola Guarino, Daniele Porello, Emilio M. Sanfilippo, and Laure Vieu.
 \end{acks}
+
+
+
+
 
 \nocite{label} 
 \bibliographystyle{ios2-nameyear}
 \bibliography{biblioFC}
+
+\newpage 
+
+%============================================
+\section{Appendix: $\dolce$ axioms and axiom preservation}\label{dolce_axioms}
+%============================================
+
+\begin{scriptsize}
+\bflist
+\item[$\oplus$] preserved axiom
+\item[$\ominus$] preserved a weaker version of the axiom
+\item[$\odot$] non preserved axiom
+\item[$\otimes$] axiom discarded because it contains non-mapped primitives
+\eflist
+\end{scriptsize}
+
+\begin{minipage}{0.45\textwidth}
+\hspace{-15pt}
+\begin{scriptsize}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{|>{\centering\arraybackslash}b{.03\textwidth}|>{\raggedright\arraybackslash}b{.08\textwidth}|p{.90\textwidth}|}
+\hline
+$\oplus$ & \dolceax{PdArg} & $\Pd(x,y) \to (\ABdcat(x) \land \ABdcat(y)) \lor (\PDdcat(x) \land \PDdcat(y))$  \\ \hline
+$\oplus$ & \dolceax{PdArgT} & $\Pd(x,y) \to (\Tdcat(x) \ifif \Tdcat(y))$  \\ \hline
+$\oplus$ & \dolceax{PdArgS} & $\Pd(x,y) \to (\Sdcat(x) \ifif \Sdcat(y))$  \\ \hline 
+$\oplus$ & \dolceax{PdRefl} & $(\ABdcat(x) \lor \PDdcat(x)) \to \Pd(x,x)$ \\ \hline 
+$\oplus$ & \dolceax{PdAntiSym} & $\Pd(x,y) \land \Pd(y,x) \to x=y$  \\ \hline
+$\oplus$ & \dolceax{PdTrans} & $\Pd(x,y) \land \Pd(y,z) \to \Pd(x,z)$  \\ \hline
+$\odot$ & \dolceax{PdSupp} & $(\ABdcat(x) \lor \PDdcat(x)) \land \neg\Pd(x,y) \to \exists z (\Pd(z,x) \land \neg \Od(z,y))$ \\ \hline
+$\ominus$ & \dolceax{DQTd_args} & $\DQTd(x,y) \to (\TQdcat(x) \land \PDdcat(y)) \lor (\PQdcat(x) \land \PEDdcat(y)) \lor \newline \mbox{} \hspace{1.41cm} (\AQdcat(x) \land \NPEDdcat(y))$  \\ \hline
+$\odot$ & \dolceax{DQTdUnicity} & $\DQTd(x,y) \land \DQTd(x,z) \to y=z$  \\ \hline
+$\oplus$ & \dolceax{DQTdExistence} & $\Qdcat(x) \to \exists y (\DQTd(x,y))$  \\ \hline
+$\odot$ & \dolceax{DQTd_PD} & $\PDdcat(x) \ifif \exists y (\DQTd(y,x) \land \TLdcat(y))$  \\ \hline
+$\odot$ & \dolceax{DQTd_PED} & $\PEDdcat(x) \ifif \exists y (\DQTd(y,x) \land \SLdcat(y))$  \\ \hline 
+$\otimes$ & \dolceax{QLd_args} & $\QLd(x,y) \to \TRdcat(x) \land \TQdcat(y)$  \\ \hline
+$\otimes$ & \dolceax{TQdcat_to_QLd} & $\TQdcat(x) \to \exists y (\QLd(y,x))$  \\ \hline
+$\otimes$ & \dolceax{Tdcat_to_TLdcat} & $\QLd(x,y) \land \Tdcat(x) \to \TLdcat(y)$  \\ \hline
+$\otimes$ & \dolceax{TLdcat_to_Tdcat} & $\TLdcat(x) \to \exists y(\Tdcat(y) \land \QLd(y,x))$ \\ \hline
+$\otimes$ & \dolceax{Tdcat_unicity} & $\QLd(x,y) \land \QLd(z,y) \land \Tdcat(x) \land \Tdcat(z) \to x=z$ \\ \hline
+$\oplus$ & \dolceax{TLCd_args} & $\TLCd(x,t) \to (\EDdcat(x) \lor \PDdcat(x) \lor \Qdcat(x)) \land \Tdcat(t)$ \\ \hline
+$\odot$ & \dolceax{d_partictime} & $(\EDdcat(x) \lor \PDdcat(x) \lor \Qdcat(x)) \to \exists t(\TLCd(x,t))$ \\ \hline
+$\oplus$ & \dolceax{TLCd_unicity} & $\TLCd(x,t) \land \TLCd(x,u) \to t=u$ \\ \hline
+$\oplus$ & \dolceax{TLCd_additiv} & $\Pd(x,y) \land \TLCd(x,t) \land \TLCd(y,u) \to \Pd(t,u)$ \\ \hline
+$\oplus$ & \dolceax{TLCd_Q} & $\DQTd(x,y) \land \TLCd(x,t) \land \TLCd(y,u) \to \Pd(t,u)$  \\ \hline
+$\otimes$ & \dolceax{TLCd_PD} & $\PDdcat(x) \to (\TLCd(x,t) \ifif \exists y(\DQTd(y,x) \land \QLd(t,y) \land \Tdcat(t)))$ \\ \hline
+$\otimes$ & \dolceax{TLCd_SL} & $\SLdcat(x) \land \DQTd(x,y) \land \TLCd(x,t) \land \TLCd(y,u) \to t=u$ \\ \hline
+$\otimes$ & \dolceax{TQLd_args} & $\TQLd(x,y,t) \to ((\PRdcat(x) \land \PQdcat(y)) \lor (\ARdcat(x) \land \AQdcat(y))) \land \Tdcat(t)$ \\ \hline% label(temporary_quale_argument_restrictions_Ad58)
+$\otimes$ & \dolceax{TQLd_to_PREd} & $\TQLd(x,y,t) \to \PREd(y,t)$ \\ \hline% label(temporary_quale_present_Ad65)
+$\otimes$ & \dolceax{TQLd_existence} & $(\PQdcat(x) \lor \AQdcat(x)) \land \PREd(x,t) \to \exists y (\TQLd(y,x,t))$ \\ \hline%label(temporary_quale_existential_Ad62)
+$\otimes$ & \dolceax{TQLd_dissect} & $\TQLd(x,y,t) \land \Pd(u,t) \to \exists z(\TQLd(z,y,u) \land \Pd(z,x))$  \\ \hline
+$\otimes$ & \dolceax{Sdcat_to_SLdcat} & $\TQLd(x,y,t) \land \Sdcat(x) \to \SLdcat(y)$ \\ \hline
+$\otimes$ & \dolceax{SLdcat_to_Sdcat} & $\SLdcat(x) \land \PREd(x,t) \to \exists y(\Sdcat(y) \land \TQLd(y,x,t))$ \\ \hline
+$\otimes$ & \dolceax{Sldcat_unicity} & $\TQLd(x,y,t) \land \TQLd(z,y,t) \land \Sdcat(x) \land \Sdcat(z) \to x=z$ \\ \hline
+$\oplus$ & \dolceax{TPd_args} & $\TPd(x,y,t) \to \EDdcat(x) \land \EDdcat(y) \land \Tdcat(t)$ \\ \hline% 
+$\odot$ & \dolceax{TPd_exist} & $\TPd(x,y,t) \to \PREd(x,t) \land \PREd(y,t)$ \\ \hline% label(temporary_parthood_Ad17)
+$\oplus$ & \dolceax{TPd_temp_dissectivity} & $\TPd(x,y,t) \land \Pd(u,t) \to \TPd(x,y,u)$ \\ \hline% label(temporary_parthood_Ad18)
+$\odot$ & \dolceax{TPd_temp_addictivity} & $\TPd(x,y,t) \land \TPd(x,y,u) \land \SUMd(s,t,u) \to \TPd(x,y,s)$ \\ \hline
+$\odot$ & \dolceax{TPd_reflex} & $\EDdcat(x) \land \PREd(x,t) \to \TPd(x,x,t)$ \\ \hline% label(temporary_parthood_Ad16)
+$\oplus$ & \dolceax{TPd_trans} & $\TPd(x,y,t) \land \TPd(y,z,t) \to \TPd(x,z,t)$ \\ \hline% label(temporary_parthood_ground_axiom_Ad13)
+$\odot$ & \dolceax{TPd_ssp} & $\EDdcat(x) \land \EDdcat(y) \land \PREd(x,t) \land \PREd(y,t) \land \neg \TPd(x,y,t) \to \newline \mbox{} \hfill{} \exists z (\TPd(z,x,t) \land \neg \TOd(z,y,t))$ \\ \hline
+$\oplus$ & \dolceax{TPd_PED} & $\PEDdcat(x) \ifif \exists yt(\TPd(y,x,t)) \land \forall yt(\TPd(y,x,t) \to \PEDdcat(y))$ \\ \hline 
+$\odot$ & \dolceax{TPd_NPED} & $\NPEDdcat(x) \ifif  \exists yt(\TPd(y,x,t)) \land \forall yt(\TPd(y,x,t) \to \NPEDdcat(y))$ \\ \hline
+$\otimes$ & \dolceax{TPd_AS} & $\ASdcat(x) \to \newline \mbox{} \hfill{} \exists yzut(\TPd(y,x,t) \land \PEDdcat(y) \land \TPd(z,x,u) \land \NPEDdcat(z))$ \\ \hline 
+$\otimes$ & \dolceax{TPd_M} & $\Mdcat(x) \land \TPd(y,x,t) \land \PREd(x,u) \to \TPd(y,x,u)$  \\ \hline
+$\otimes$ & \dolceax{Kd_args} & $\Kd(x,y,t) \to \Tdcat(t) \land ((\PEDdcat(x){\land} \PEDdcat(y)) \lor \newline \mbox{} \hfill{}  (\NPEDdcat(x){\land}\NPEDdcat(y)) \lor  (\PDdcat(x){\land}\PDdcat(y)))$ \\ \hline
+
+\end{tabular}
+\end{scriptsize}
+\end{minipage}%
+\mbox{}\hfill{}
+\begin{minipage}{0.45\textwidth}
+\setlength{\tabcolsep}{2.5pt}
+\hspace{-25pt}
+\begin{scriptsize}
+\begin{tabular}{|>{\centering\arraybackslash}b{.03\textwidth}|>{\raggedright\arraybackslash}b{.08\textwidth}|p{.90\textwidth}|}
+%\begin{tabular}{>{\centering\arraybackslash}p{1cm}}
+\hline
+
+$\otimes$ & \dolceax{Kd_to_PREd} & $\Kd(x,y,t) \to \PREd(x,t) \land \PREd(y,t)$ \\ \hline% label(constitution_Ad26)
+$\otimes$ & \dolceax{Kd_dissect} & $\Kd(x,y,t) \land \Pd(u,t) \to \Kd(x,y,u)$ \\ \hline% label(constitution_Ad27_weakened)
+$\otimes$ & \dolceax{Kd_temp_addictivity} & $\Kd(x,y,t) \land \Kd(x,y,u) \land \SUMd(s,t,u) \to \Kd(x,y,s)$ \\ \hline
+$\otimes$ & \dolceax{Kd_existdep} & $\Kd(x,y,u) \land \PREd(y,t) \to \exists zv(\Pd(v,t) \land \Kd(z,y,v))$ \\ \hline
+$\otimes$ & \dolceax{Kd_asym} & $\Kd(x,y,t) \to \neg\Kd(y,x,t)$ \\ \hline% label(constitution__ground_axiom_Ad24)
+$\otimes$ & \dolceax{Kd_trans} & $\Kd(x,y,t) \land \Kd(y,z,t) \to \Kd(x,z,t)$ \\ \hline% label(constitution__ground_axiom_Ad25)
+$\otimes$ & \dolceax{Kd_granularity} & $\Kd(x,y,t) \land \TPPd(z,y,t) \to \exists w(\TPPd(w,x,t) \land \Kd(w,z,t))$ \\ \hline% label(constitution_Ad29) 
+$\otimes$ & \dolceax{Kd_unicity} & $\Kd(x,y,t) \land \Kd(z,y,t) \to (x=z \lor \Kd(x,z,t) \lor \Kd(z,x,t))$  \\ \hline
+$\oplus$ & \dolceax{PCd_args} & $\PCd(x,y,t) \to \EDdcat(x) \land \PDdcat(y) \land \Tdcat(t)$ \\ \hline% label(participation_argument_restrictions_Ad33)
+$\odot$ & \dolceax{PCd_present} & $\PCd(x,y,t) \to \PREd(x,t) \land \PREd(y,t)$ \\ \hline% label(participation_present_Ad36)
+$\oplus$ & \dolceax{PCd_time_dissect} & $\PCd(x,y,t) \land \Pd(u,t) \to \PCd(x,y,u)$ \\ \hline% label(participation_present_Ad37)
+$\odot$ & \dolceax{PCd_temp_addictivity} & $\PCd(x,y,t) \land \PCd(x,y,u) \land \SUMd(s,t,u) \to \PCd(x,y,s)$ \\ \hline
+$\odot$ & \dolceax{PCd_existence_participant} & $\PDdcat(x) \land \PREd(x,t) \to \exists yu(\Pd(u,t) \land \PCd(y,x,u))$ \\ \hline% label(participation_existential_Ad34)
+$\odot$ & \dolceax{PCd_existence_perdurant} & $\EDdcat(x) \land \PREd(x,t) \to \exists yu (\Pd(u,t) \land \PCd(x,y,u))$ \\ \hline% label(participation_existential_Ad35_corrected)
+$\odot$ & \dolceax{PDd_pd_addict} & $\PCd(x,y,t) \land \Pd(y,z) \to \PCd(x,z,t)$ \\ \hline
+$\odot$ & \dolceax{EXDd2PREd} & $\EXDd(x,y,t) \to \PREd(x,t) \land \PREd(y,t)$ \\ \hline
+$\odot$ & \dolceax{EXDd_time_dissect} & $\EXDd(x,y,t) \land \Pd(u,t) \to \EXDd(x,y,u)$ \\ \hline
+$\odot$ & \dolceax{EXDd_temp_addictivity} & $\EXDd(x,y,t) \land \EXDd(x,y,u) \land \SUMd(s,t,u) \to \EXDd(x,y,s)$  \\ \hline
+$\odot$ & \dolceax{EXDd_existdep} & $\EXDd(x,y,u) \land \PREd(x,t) \to \exists zv(\Pd(v,t) \land \EXDd(x,z,v))$ \\ \hline
+$\otimes$ & \dolceax{EXDd_to_Kd} & $\Kd(x,y,t) \to \EXDd(y,x,t)$   \\ \hline
+$\oplus$ & \dolceax{EXDd_to_PCd} & $\PCd(x,y,t) \to \EXDd(x,y,t) \land \EXDd(y,x,t)$  \\ \hline%\hfill{\color{red} [added]}
+$\odot$ & \dolceax{DQTd_to_SDd} & $\DQTd(x,y) \to \SDd(x,y)$  \\ \hline% label(direct_quality_Ad43)
+$\odot$ & \dolceax{EXDd_NPED} & $\NPEDdcat(x) \land \PREd(x,t) \to \exists yu(\PEDdcat(y) \land \Pd(u,t) \land \EXDd(x,y,u))$ \\ \hline
+$\otimes$ & \dolceax{EXDd_MOB} & $\MOBdcat(x) \to \exists y(\APOdcat(y) \land \SDd(x,y))$  \\ \hline
+$\otimes$ & \dolceax{EXDd_NASO} & $\NASOdcat(x) \land \PREd(x,t) \to \exists yu(\SCdcat(y) \land \Pd(u,t) \land \EXDd(x,y,u))$ \\ \hline
+$\otimes$ & \dolceax{EXDd_SC} & $\SCdcat(x) \land \PREd(x,t) \to \exists yu(\SAGdcat(y) \land \Pd(u,t) \land \Kd(y,x,u))$ \\ \hline
+$\otimes$ & \dolceax{EXDd_SAG} & $\SAGdcat(x) \land \PREd(x,t) \to \exists yu(\APOdcat(y) \land \Pd(u,t) \land \EXDd(x,y,u))$ \\ \hline
+$\otimes$ & \dolceax{EXDd_F} & $\Fdcat(x) \land \PREd(x,t) \to \exists yu(\NAPOdcat(y) \land \Pd(u,t) \land \EXDd(x,y,u))$ \\ \hline
+$\otimes$ & \dolceax{EXDd_APO} & $\APOdcat(x) \land \PREd(x,t) \to \exists yu(\NAPOdcat(y) \land \Pd(u,t) \land \Kd(y,x,u))$ \\ \hline
+$\otimes$ & \dolceax{EXDd_NAPO} & $\NAPOdcat(x) \land \PREd(x,t) \to \exists yu(\Mdcat(y) \land \Pd(u,t) \land \Kd(y,x,u))$ \\ \hline
+$\ominus$ & \dolceax{SLCd_args} & $\SLCd(x,s,t) \to ((\EDdcat(x) \land \neg \ASdcat(x)) \lor \PQdcat(x) \lor \PDdcat(x)) \land \Sdcat(s)$ \\ \hline
+$\odot$ & \dolceax{SLCd_to_PREd} & $\SLCd(x,s,t) \to \PREd(x,t)$ \\ \hline
+$\oplus$ & \dolceax{SLCd_unicity} & $\SLCd(x,s,t) \land \SLCd(x,r,t) \to s=r$  \\ \hline
+$\oplus$ & \dolceax{SLCd_dissectivity} & $\SLCd(x,s,u) \land \SLCd(x,r,t) \land \Pd(u,t) \to \Pd(s,r)$  \\ \hline
+$\odot$ & \dolceax{SLCd_existdep} & $\SLCd(x,s,u) \land \PREd(x,t) \to \exists r(\SLCd(x,r,t))$  \\ \hline
+$\otimes$ & \dolceax{SLCd_PEDs} & $\PEDdcat(x) \to \newline \mbox{} \hfill{}  (\SLCd(x,s,t) \ifif \exists y(\DQTd(y,x) \land \SLdcat(y) \land \TQLd(s,y,t)))$  \\ \hline
+$\otimes$ & \dolceax{SLCd_PQ} & $\PQdcat(x) \to (\SLCd(x,s,t) \ifif \exists y(\DQTd(x,y) \land \SLCd(y,s,t)))$  \\ \hline
+$\oplus$ & \dolceax{dolce_NPED_sloc} & $\NPEDdcat(x) \land \SLCd(x,s,t) \to \newline \mbox{} \hfill{}  \exists y(\PEDdcat(y) \land \EXDd(x,y,t) \land \SLCd(y,s,t))$  \\ \hline
+$\odot$ & \dolceax{SLCd_PDs1} & $\PCd(x,y,t) \land \SLCd(x,s,t) \to \exists r(\SLCd(y,r,t))$  \\ \hline
+$\oplus$ & \dolceax{SLCd_PDs2} & $\PCd(x,y,t) \land \SLCd(x,r,t) \land \SLCd(y,s,t) \to \Pd(r,s)$  \\ \hline
+$\odot$ & \dolceax{TPd_up_slc} & $\TPd(x,y,t) \land \SLCd(x,s,t) \to \exists r (\SLCd(y,r,t))$  \\ \hline
+$\oplus$ & \dolceax{TPd_down_slc} & $\TPd(x,y,t) \land \SLCd(x,r,t) \land \SLCd(y,s,t)  \to \Pd(r,s)$ \\ \hline
+$\odot$ & \dolceax{Pd_up_slc} & $\Pd(x,y) \land \SLCd(x,s,t) \to \exists r(\SLCd(y,r,t))$  \\ \hline
+$\oplus$ & \dolceax{Pd_down_slc} & $\Pd(x,y) \land \SLCd(x,r,t) \land \SLCd(y,s,t) \to \Pd(r,s)$  \\ \hline
+$\otimes$ & \dolceax{Kd_colocalization} & $\Kd(x,y,t) \to \forall s(\SLCd(x,s,t) \ifif \SLCd(y,s,t))$  \\ \hline
+\end{tabular}
+\end{scriptsize}
+\end{minipage}%
+%\end{footnotesize}
+
+
 
 \end{document}
 
